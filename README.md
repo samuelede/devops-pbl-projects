@@ -1,2 +1,2 @@
-# devops-pbl-projects
+# DevOps-PBL-Projects
 DevOps Project Based Learning Projects
