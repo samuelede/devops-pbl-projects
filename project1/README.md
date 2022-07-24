@@ -8,10 +8,10 @@
 JULY 2022
 
 
-LAMP STACK IMPLEMENTATION
+## LAMP STACK IMPLEMENTATION
 
 
-STEP 0 – Web Stack Implementation (LAMP Stack) in AWS
+### STEP 0 – Web Stack Implementation (LAMP Stack) in AWS
 
 A technology stack is a set of frameworks and tools used to develop a software product. This set of frameworks and tools are very specifically chosen to work together in creating a well-functioning software. They are acronymns for individual technologies used together for a specific technology product. some examples are…
 LAMP (Linux, Apache, MySQL, PHP or Python, or Perl)
@@ -20,10 +20,10 @@ MERN (MongoDB, ExpressJS, ReactJS, NodeJS)
 MEAN (MongoDB, ExpressJS, AngularJS, NodeJS
 Our goal in this section is to:
 
-Register and setup a FREE AWS account.
-Create a new AWS EC2 Instance
-Setup and Provision an Ubuntu Server
-Connect to an EC2 instance
+- Register and setup a FREE AWS account.
+- Create a new AWS EC2 Instance
+- Setup and Provision an Ubuntu Server
+- Connect to an EC2 instance
 
 
 Step 0 of 1 - Creating an aws account. Type in an email address and suitable AWS console name and click verify email address. Sign in to the email account and verify your account.
