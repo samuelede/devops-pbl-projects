@@ -1,18 +1,14 @@
 
 
-DevOps PBL
-Project 1 Report
+# H1 DevOps PBL
+# H1 Project 1 Report
 
-Darey.io - DevOps Project Based Learning Project 1 Documentation
+## Darey.io - DevOps Project Based Learning Project 1 Documentation
 
 JULY 2022
 
 
 LAMP STACK IMPLEMENTATION
-
-
-
-
 
 
 STEP 0 – Web Stack Implementation (LAMP Stack) in AWS
