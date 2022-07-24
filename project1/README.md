@@ -64,7 +64,7 @@ This is used in our ssh client to connect remotely to our server.
 
 
 Step 0 of 11 - Open your preferred terminal and change directory to your stored .pem key location as shown above, if stored in the downloads folder type command 
-Cd c:/users/<pcname>/downloads and hit enter. Then type the command 
+'cd c:/users/<pcname>/downloads' and hit enter. Then type the command 
 ssh - i “<yourpemkeyname.pem” ubuntu@ec2-<ip address>.compute-1.amazon.com
 On the command line and hit enter. A green prompt with our server ip should pop up as shown in the above image.
 
