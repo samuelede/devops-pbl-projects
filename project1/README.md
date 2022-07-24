@@ -1,7 +1,7 @@
 
 
-# H1 DevOps PBL
-# H1 Project 1 Report
+# DevOps PBL
+# Project 1 Report
 
 ## Darey.io - DevOps Project Based Learning Project 1 Documentation
 
