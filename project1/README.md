@@ -25,16 +25,16 @@ Our goal in this section is to:
 - Setup and Provision an Ubuntu Server
 - Connect to an EC2 instance
 
-![create aws account](step0_1create_account.jpg)
+![create aws account](images/step0_1create_account.jpg)
 Step 0 of 1 - Creating an aws account. Type in an email address and suitable AWS console name and click verify email address. Sign in to the email account and verify your account.
 
-![signin account](step0_2signin_account.jpg)
+![signin account](images/step0_2signin_account.jpg)
 Step 0 of 2 - sign in to AWS account using new root user email after clicking the sign in link
 
-![aws console dashboard](step0_3awsconsole_account.jpg)
+![aws console dashboard](images/step0_3awsconsole_account.jpg)
 Step 0 of 3 - Overview of the AWS console, Regions, Cost and usage, and other settings. In this case we type in EC2 in the search bar to find and create a new AWS instance.
 
-![ec2 instance](step0_4ec2_instance.jpg)
+![ec2 instance](images/step0_4ec2_instance.jpg)
 Step 0 of 4 - Select the EC2 instance and also check the star icon to add it to the favorite section of the console homepage.
 
 Step 0 of 5 - Select a preferred region as highlighted in the top right above to select a preferable region and/or change. Next click and select Launch instance as shown in 2.
