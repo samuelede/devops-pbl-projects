@@ -1,5 +1,5 @@
-# Darey.io DevOps-PBL Projects
-Darey.io DevOps Project Based Learning Projects
+# Darey.io DevOps-PBL Projects with AWS
+Darey.io DevOps Project Based Learning Projects with Amazon Web Services (AWS)
 
 Contents
 - [**Project 1** - LAMP Stack Implementation](project1/README.md)
