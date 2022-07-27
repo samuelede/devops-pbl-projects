@@ -1,6 +1,6 @@
 
 
-# DevOps PBL
+# DevOps PBL with AWS
 # Project 1 Report
 
 ## Darey.io - DevOps Project Based Learning Project 1 Documentation
