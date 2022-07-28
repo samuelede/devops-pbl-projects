@@ -22,14 +22,14 @@ ExpressJS: A server side Web Application framework for Node.js.
 ReactJS: A frontend framework developed by Facebook. It is based on JavaScript, used to build User Interface (UI) components.
 Node.js: A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
 In project 3, we will implement a web solution on MERN stack in AWS Cloud.
-
+![MERN Stack](images/MERN-stack.png)
 
 
 Step 0 - Preparing prerequisites 
 
 In order to complete this project you will need an AWS account and a virtual server with Ubuntu Server OS.
 If you do not have an AWS account – go back to Project 1 Step 0 to sign in to AWS free tier account and create a new EC2 Instance of t2.nano family with Ubuntu Server 22.04 LTS (HVM) image and logi to the via the terminal.
-![MERN Stack](images/MERNstack.png)
+
 
 Step 1 - BackEnd Configuration
 
