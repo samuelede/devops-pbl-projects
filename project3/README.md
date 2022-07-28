@@ -1,20 +1,20 @@
 
 
-DevOps PBL
-Project 3 Report
+# DevOps PBL
+# Project 3 Report
 
-Darey.io - DevOps Project Base Learning Project3 Documentation
+## Darey.io - DevOps Project Base Learning Project3 Documentation
 
 JULY 2022
 
 
-MERN STACK IMPLEMENTATION
+# MERN STACK IMPLEMENTATION
 
 
 
 
 
-Introduction & Background
+## Introduction & Background
 
 MERN Web stack consists of following components:
 MongoDB: A document-based, No-SQL database used to store application data in a form of documents.
