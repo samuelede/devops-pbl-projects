@@ -54,19 +54,15 @@ Step 0 of 7 - Click create new key pair and save the file in your downloads fold
 ![ec2 instance created](images/step0_8_ec2_instance_created.jpg)
 Step 0 of 8 - After clicking Lauch instance, the above page should show up. Next, click View all instances.
 
-
+![select running instance](images/step0_9select_running_instance.jpg)
 Step 0 of 9 - The above image shoes the resulting features. To check the status of the server, click on the refresh button as in 1, then click the checkbox as in 2 above to view the server details below and finally click connect as in 3 above to to connect to the Server.
 
-
-
-
-
-
+![vm login details](images/step0_10_vmlogin_details.jpg)
 Step 0 of 10 - After clicking connect, select the SSH client tab. The above details would b visible. Click on the copy icon beside 
 ssh - i “<yourpemkeyname.pem” ubuntu@ec2-<ip address>.compute-1.amazon.com 
 This is used in our ssh client to connect remotely to our server.
 
-
+![ssh vmlogin](images/step0_11_ssh_vmlogin.jpg)
 Step 0 of 11 - Open your preferred terminal and change directory to your stored .pem key location as shown above, if stored in the downloads folder type command 
 'cd c:/users/<pcname>/downloads' and hit enter. Then type the command 
 ssh - i “<yourpemkeyname.pem” ubuntu@ec2-<ip address>.compute-1.amazon.com
@@ -76,7 +72,7 @@ On the command line and hit enter. A green prompt with our server ip should pop 
 
 The objective of these steps are to setup our server environment to enable us install the necessary prerequisites, application software, databases and other software deployment tools to be used for deployment and hosting of our websites or software applications.
 
-
+![apache install](images/step1_1_apache_install.jpg)
 Step 1 – Installing apache and updating firewall
 Apache HTTP Server is the most widely used web server software. Developed and maintained by Apache Software Foundation, Apache is an open source software available for free. It runs on 67% of all webservers in the world.
 Our goal with this  installation is to:
