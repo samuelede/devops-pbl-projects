@@ -41,7 +41,7 @@ Step 0 of 4 - Select the EC2 instance and also check the star icon to add it to 
 Step 0 of 5 - Select a preferred region as highlighted in the top right above to select a preferable region and/or change. Next click and select Launch instance as shown in 2.
 
 ![pkp ec2 instance](images/step0_6_pkp_ec2_instance.jpg)
-Step 0 of 6 - Type in a preferred instane name and in the Applications and OS Images section select Ubuntu and the ubuntu server 22.04
+Step 0 of 6 - Type in a preferred instance name and in the Applications and OS Images section select Ubuntu and the ubuntu server 22.04
 ![launch ec2 instance](images/step0_6launch_ec2_instance.jpg)
 
 Next, click create a key pair and type a key name, select RSA and .pem private key option.
