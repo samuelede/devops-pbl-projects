@@ -88,6 +88,7 @@ sudo apt update  this would update the list of packages available in our ubuntu 
 Step 1 of 2 - Next type in sudo apt install apache2 and hit enter. The resulting page should look like tha above image.
 
 ![apache running status](images/step1_3_apache_running_status.jpg)
+ 
 Step 1 of 3 - Next type systemctl status apache2 to verify the status of the running apache service. A green active status would confirm the status of our installed apache server in the cloud.
 
 
