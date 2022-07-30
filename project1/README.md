@@ -81,10 +81,12 @@ Install an apache server on our ubuntu virtual machine
 Configure the server and set firewall rules
 
 ![apache install](images/step1_1_apache_install.jpg)
+ 
 Step 1 of 1 - Type the following in your recently launched command line 
 sudo apt update  this would update the list of packages available in our ubuntu box as shown above.
  
 ![apache install](images/step1_2_apache_install.jpg)
+ 
 Step 1 of 2 - Next type in sudo apt install apache2 and hit enter. The resulting page should look like tha above image.
 
 ![apache running status](images/step1_3_apache_running_status.jpg)
