@@ -72,21 +72,22 @@ On the command line and hit enter. A green prompt with our server ip should pop 
 
 The objective of these steps are to setup our server environment to enable us install the necessary prerequisites, application software, databases and other software deployment tools to be used for deployment and hosting of our websites or software applications.
 
-![apache install](images/step1_1_apache_install.jpg)
+
+ 
 Step 1 – Installing apache and updating firewall
 Apache HTTP Server is the most widely used web server software. Developed and maintained by Apache Software Foundation, Apache is an open source software available for free. It runs on 67% of all webservers in the world.
 Our goal with this  installation is to:
 Install an apache server on our ubuntu virtual machine
 Configure the server and set firewall rules
 
-
+![apache install](images/step1_1_apache_install.jpg)
 Step 1 of 1 - Type the following in your recently launched command line 
 sudo apt update  this would update the list of packages available in our ubuntu box as shown above.
  
-
+![apache install](images/step1_2_apache_install.jpg)
 Step 1 of 2 - Next type in sudo apt install apache2 and hit enter. The resulting page should look like tha above image.
 
-
+![apache running status](images/step1_3_apache_running_status.jpg)
 Step 1 of 3 - Next type systemctl status apache2 to verify the status of the running apache service. A green active status would confirm the status of our installed apache server in the cloud.
 
 
