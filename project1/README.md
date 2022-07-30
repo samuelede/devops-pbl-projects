@@ -43,6 +43,7 @@ Step 0 of 5 - Select a preferred region as highlighted in the top right above to
 ![pkp ec2 instance](images/step0_6_pkp_ec2_instance.jpg)
 
 Step 0 of 6 - Type in a preferred instance name and in the Applications and OS Images section select Ubuntu and the ubuntu server 22.04
+
 ![launch ec2 instance](images/step0_6launch_ec2_instance.jpg)
 
 Next, click create a key pair and type a key name, select RSA and .pem private key option.
@@ -50,7 +51,7 @@ Next, click create a key pair and type a key name, select RSA and .pem private k
 ![launch ec2 instance](images/step0_7launch_ec2_instance2.jpg)
 Step 0 of 7 - Click create new key pair and save the file in your downloads folder and In the Network Settings, click select existing security group previously created from the common security groups drop down, then finally click on Launch Instance.
 
-
+![ec2 instance created](images/step0_8_ec2_instance_created.jpg)
 Step 0 of 8 - After clicking Lauch instance, the above page should show up. Next, click View all instances.
 
 
