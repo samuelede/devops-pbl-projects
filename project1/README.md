@@ -65,7 +65,7 @@ This is used in our ssh client to connect remotely to our server.
 ![ssh vmlogin](images/step0_11_ssh_vmlogin.jpg)
 Step 0 of 11 - Open your preferred terminal and change directory to your stored .pem key location as shown above, if stored in the downloads folder type command 
 'cd c:/users/<pcname>/downloads' and hit enter. Then type the command 
-ssh - i “<yourpemkeyname.pem” ubuntu@ec2-<ip address>.compute-1.amazon.com
+'ssh - i “<yourpemkeyname.pem” ubuntu@ec2-<ip address>.compute-1.amazon.com'
 On the command line and hit enter. A green prompt with our server ip should pop up as shown in the above image.
 
 
@@ -93,14 +93,17 @@ Step 1 of 2 - Next type in sudo apt install apache2 and hit enter. The resulting
  
 Step 1 of 3 - Next type systemctl status apache2 to verify the status of the running apache service. A green active status would confirm the status of our installed apache server in the cloud.
 
+![apache localhost status](images/step1_4_apache_localhost_status.jpg)
 
 Step 1 of 4 - To verify and access out server locally on our ubuntu command line, type the following:
 curl http://localhost:80 or  curl http://127.0.0.1:80 
 The above image shows the content of the resulting html file that can be viewed publicly. The ‘curl’ command indicates to our apache http server on port 80 to request for the server default page.
 
+![apache public address status](images/step1_5_apache_public_address_status.jpg)
 
 Step 1 of 5 - to test our server default page on a browser, open a browser and type in http://<public-ip-address>: 80 using the ip address provided after our instance was created. The 80 means the default port used by browsers to connect to our apache web server. The resulting page should look like the image above.
 
+![apache localhost status alt status](images/step1_6_apache_localhost_alt_status.jpg)
 
 Step 1 of 6 - Another way to check our ip address rather than through the aws console  is to type in curl -s http://<ip-address>/latest/meta-data/public-ipv4
 As shown above.
