@@ -74,7 +74,7 @@ The objective of these steps are to setup our server environment to enable us in
 
 
  
-Step 1 – Installing apache and updating firewall
+**Step 1 – Installing apache and updating firewall**
 Apache HTTP Server is the most widely used web server software. Developed and maintained by Apache Software Foundation, Apache is an open source software available for free. It runs on 67% of all webservers in the world.
 Our goal with this  installation is to:
 Install an apache server on our ubuntu virtual machine
@@ -132,21 +132,24 @@ Step 2 of 4 - To make our sql server more secure with a password, we use the fol
 Answer y for yes and/or anything else. Follow the prompts and type in a secure password to complete the process as shown above.
 
 ![mysql changne password](images/step2_5_mysql_change_password.jpg)
+ 
 Step 2 of 5 - To login securely to our mysql console, type sudo mysql -p in the command line and type in the newly specified password. The above shows the result of the command. Type exit to close the mysql console.
 This would always prompt for a password everytime we want to access the mysql console.
 
 
 
 
-Step 3 – Installing PHP
+**Step 3 – Installing PHP**
 
 Now that we have Apache installed to serve your content and MySQL installed to store and manage your data. PHP is the component of our setup that will process code to display dynamic content to the end user. In addition to the php package, you’ll need 
 php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases. You’ll also need libapache2-mod-php to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies.
 
-
+![install php](images/step3_1_install_php.jpg)
+ 
 Step 3 of 1 - To install php type the following command 
 sudo apt install php libapache2-mod-php php-mysql in the ssh prompt to begin the installation process. The above shows the next steps, type y at the prompt to confirm yes and proceed.
 
+![php version check](images/step3_2_php_complete_version_check.jpg)
 
 Step 3 of 2 - Once the installation is complete type php -v to confirm the php version as shown above.
 
