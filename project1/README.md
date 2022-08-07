@@ -186,19 +186,12 @@ After running the above command, a blank file is created and opened as shown bel
 Step 4 of 2 - Type ` i ` and paste the following code into the configuration file as show in the image above:
 
 `<VirtualHost *:80>
-
-    ServerName projectlamp
-    
-    ServerAlias www.projectlamp 
-    
-    ServerAdmin webmaster@localhost
-    
-    DocumentRoot /var/www/projectlamp
-    
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-    
+    ServerName projectlamp    
+    ServerAlias www.projectlamp     
+    ServerAdmin webmaster@localhost    
+    DocumentRoot /var/www/projectlamp    
+    ErrorLog ${APACHE_LOG_DIR}/error.log    
+    CustomLog ${APACHE_LOG_DIR}/access.log combined    
 </VirtualHost>`
 
 Next, hit `esc` , type `:`  , and type `wq` *w* for write and *q* to quit and then finally hit *enter* to save the file.
@@ -238,15 +231,10 @@ The above diagram is the resulting output.
 Step 5 of 2 - Copy the following and replace the above content with this:
 
 `<IfModule mod_dir.c>
-
-        #Change this:
-        
-        #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
-        
-        #To this:
-        
-        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
-        
+        #Change this:        
+        #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm        
+        #To this:        
+        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm        
 </IfModule>`
  
 ![php enable mod](images/step5_3_php_index_php_custom.jpg)
