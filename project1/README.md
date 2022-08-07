@@ -233,8 +233,8 @@ Next, we will create a PHP script to test our PHP configurations are run correct
 ![php index php custom edit](images/step5_4_php_index_php_custom_edit.jpg)
 
 Step 5 of 4 - To create a new PHP file, type vim /var/www/projectlamp/index.php this will open a blank file. Add the following code to the file.
-<?php
-phpinfo();
+`<?php
+phpinfo();`
 
 Save and close the file. 
 
