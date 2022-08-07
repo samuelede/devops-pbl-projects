@@ -59,7 +59,7 @@ Step 0 of 9 - The above image shoes the resulting features. To check the status 
 
 ![vm login details](images/step0_10_vmlogin_details.jpg)
 Step 0 of 10 - After clicking connect, select the SSH client tab. The above details would b visible. Click on the copy icon beside 
-ssh - i “<yourpemkeyname.pem” ubuntu@ec2-<ip address>.compute-1.amazon.com 
+'ssh - i “<yourpemkeyname.pem” ubuntu@ec2-<ip address>.compute-1.amazon.com' 
 This is used in our ssh client to connect remotely to our server.
 
 ![ssh vmlogin](images/step0_11_ssh_vmlogin.jpg)
