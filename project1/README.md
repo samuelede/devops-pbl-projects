@@ -108,24 +108,30 @@ Step 1 of 5 - to test our server default page on a browser, open a browser and t
 Step 1 of 6 - Another way to check our ip address rather than through the aws console  is to type in curl -s http://<ip-address>/latest/meta-data/public-ipv4
 As shown above.
 
-Step 2 – Installing MySQL
+**Step 2 – Installing MySQL**
 In step 2 we will install a Database Management System (DBMS) to be able to store and manage data for your site in a relational database. MySQL is a popular relational database management system used within PHP environments, so we will use it in our project.
+
+![install mysql server](images/step2_1_install_mysql_server.jpg)
 
 Step 2 of 1 - type in the following command to begin installation of mysql server
 sudo apt install mysql-server
 A prompt will ask to confirm the installation process, type y to proceed.
 
+![install mysql server](images/step2_2_install_mysql_status.jpg)
+
 Step 2 of 2 - type the following command after the installation is complete to confirm mysql server running status. sudo service mysql status
 A green active status confirms our mysql server installation in the above diagram.
 
+![mysql command line](images/step2_3_mysql_commandline.jpg)
 
 Step 2 of 3 - to login to our  installed mysql database server, type sudo mysql in the terminal prompt. The above image shows the resulting output and new mysql> prompt. Type exit to exit the mysql shell.
 
+![mysql set strong password](images/step2_4_mysql_set_strongpassword.jpg)
 
 Step 2 of 4 - To make our sql server more secure with a password, we use the following command to achieve this. sudo mysql_secure installation 
 Answer y for yes and/or anything else. Follow the prompts and type in a secure password to complete the process as shown above.
 
-
+![mysql changne password](images/step2_5_mysql_change_password.jpg)
 Step 2 of 5 - To login securely to our mysql console, type sudo mysql -p in the command line and type in the newly specified password. The above shows the result of the command. Type exit to close the mysql console.
 This would always prompt for a password everytime we want to access the mysql console.
 
