@@ -64,7 +64,9 @@ This is used in our ssh client to connect remotely to our server.
 
 ![ssh vmlogin](images/step0_11_ssh_vmlogin.jpg)
 Step 0 of 11 - Open your preferred terminal and change directory to your stored .pem key location as shown above, if stored in the downloads folder type command 
+
 `cd c:/users/<pcname>/downloads` and hit enter. Then type the command
+
 `ssh - i “<yourpemkeyname.pem>” ubuntu@ec2-<ip address>.compute-1.amazon.com`
 In the command line and hit enter after replacing they key name and server ip address. A green prompt with our server ip should pop up as shown in the above image.
 
@@ -96,7 +98,9 @@ Step 1 of 3 - Next type `systemctl status apache2` to verify the status of the r
 ![apache localhost status](images/step1_4_apache_localhost_status.jpg)
 
 Step 1 of 4 - To verify and access out server locally on our ubuntu command line, type the following:
+
 `curl http://localhost:80 or  curl http://127.0.0.1:80`
+
 The above image shows the content of the resulting html file that can be viewed publicly. The ‘curl’ command indicates to our apache http server on port 80 to request for the server default page.
 
 ![apache public address status](images/step1_5_apache_public_address_status.jpg)
@@ -105,7 +109,8 @@ Step 1 of 5 - to test our server default page on a browser, open a browser and t
 
 ![apache localhost status alt status](images/step1_6_apache_localhost_alt_status.jpg)
 
-Step 1 of 6 - Another way to check our ip address rather than through the aws console  is to type in `curl -s http://<ip-address>/latest/meta-data/public-ipv4`
+Step 1 of 6 - Another way to check our ip address rather than through the aws console  is to type in 
+`curl -s http://<ip-address>/latest/meta-data/public-ipv4`
 As shown above.
 
 ### Step 2 – Installing MySQL
@@ -119,7 +124,8 @@ A prompt will ask to confirm the installation process, type y to proceed.
 
 ![install mysql server](images/step2_2_install_mysql_status.jpg)
 
-Step 2 of 2 - type the following command after the installation is complete to confirm mysql server running status. `sudo service mysql status`
+Step 2 of 2 - type the following command after the installation is complete to confirm mysql server running status. 
+`sudo service mysql status`
 A green active status confirms our mysql server installation in the above diagram.
 
 ![mysql command line](images/step2_3_mysql_commandline.jpg)
@@ -128,7 +134,8 @@ Step 2 of 3 - to login to our  installed mysql database server, type `sudo mysql
 
 ![mysql set strong password](images/step2_4_mysql_set_strongpassword.jpg)
 
-Step 2 of 4 - To make our sql server more secure with a password, we use the following command to achieve this. ` sudo mysql_secure installation `
+Step 2 of 4 - To make our sql server more secure with a password, we use the following command to achieve this. 
+` sudo mysql_secure installation `
 Answer ` y ` for yes and/or anything else. Follow the prompts and type in a secure password to complete the process as shown above.
 
 ![mysql changne password](images/step2_5_mysql_change_password.jpg)
@@ -168,12 +175,14 @@ We will leave this configuration as is and will add our own directory next next 
 Step 4 of 1 - Type in the command sudo `mkdir /var/www/projectlamp` to create a new directory/folder in our php installation. The command mkdir in linux creates a folder followed by the  path of the new folder location.
 Next, type `cd /var/www/projectlamp` to change directory to the new folder location as shown above. To assign ownership of the directory, also type 
 `sudo chown -R $USER:$USER /var/www/projectlamp`
-The we create a new configuration file in apache’s sites-available directory with the following command, `sudo vi /etc/apache2/sites-available/projectlamp.conf`
+The we create a new configuration file in apache’s sites-available directory with the following command, 
+`sudo vi /etc/apache2/sites-available/projectlamp.conf`
 After running the above command, a blank file is created and opened as shown below.
 
 ![configuration file settings](images/step4_2_conf_file_settings.jpg)
  
 Step 4 of 2 - Type ` i ` and paste the following code into the configuration file as show in the image above:
+
 `<VirtualHost *:80>
     ServerName projectlamp
     ServerAlias www.projectlamp 
@@ -182,6 +191,7 @@ Step 4 of 2 - Type ` i ` and paste the following code into the configuration fil
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>`
+
 Next, hit `esc` , type `:`  , and type `wq` *w* for write and *q* to quit and then finally hit *enter* to save the file.
 
 ![enable virtual host](images/step4_3_enable_virtual_host.jpg)
@@ -217,6 +227,7 @@ The above diagram is the resulting output.
 ![php enable mod](images/step5_2_php_mod_change_save.jpg)  
 
 Step 5 of 2 - Copy the following and replace the above content with this:
+
 `<IfModule mod_dir.c>
         #Change this:
         #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
