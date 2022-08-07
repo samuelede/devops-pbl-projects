@@ -246,6 +246,6 @@ Step 5 of 5 -  Then refresh the page in the browser to see the changes. The abov
 
 Step 5 of 6 - After checking the PHP settings, we need to remove the file because it contains critical server information about our PHP envronment.
 Use the rm command to remove the file by typing the following:
-'sudo rm /var/www/projectlamp/index.php'
+`sudo rm /var/www/projectlamp/index.php`
 This completes all the requirements for our project 1. 
 
