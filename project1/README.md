@@ -134,7 +134,8 @@ Step 2 of 3 - to login to our  installed mysql database server, type `sudo mysql
 
 ![mysql set strong password](images/step2_4_mysql_set_strongpassword.jpg)
 
-Step 2 of 4 - To make our sql server more secure with a password, we use the following command to achieve this. 
+Step 2 of 4 - To make our sql server more secure with a password, we use the following command to achieve this.
+
 ` sudo mysql_secure installation `
 Answer ` y ` for yes and/or anything else. Follow the prompts and type in a secure password to complete the process as shown above.
 
@@ -174,6 +175,7 @@ We will leave this configuration as is and will add our own directory next next 
  
 Step 4 of 1 - Type in the command sudo `mkdir /var/www/projectlamp` to create a new directory/folder in our php installation. The command mkdir in linux creates a folder followed by the  path of the new folder location.
 Next, type `cd /var/www/projectlamp` to change directory to the new folder location as shown above. To assign ownership of the directory, also type 
+
 `sudo chown -R $USER:$USER /var/www/projectlamp`
 The we create a new configuration file in apache’s sites-available directory with the following command, 
 `sudo vi /etc/apache2/sites-available/projectlamp.conf`
@@ -184,12 +186,19 @@ After running the above command, a blank file is created and opened as shown bel
 Step 4 of 2 - Type ` i ` and paste the following code into the configuration file as show in the image above:
 
 `<VirtualHost *:80>
+
     ServerName projectlamp
+    
     ServerAlias www.projectlamp 
+    
     ServerAdmin webmaster@localhost
+    
     DocumentRoot /var/www/projectlamp
+    
     ErrorLog ${APACHE_LOG_DIR}/error.log
+    
     CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
 </VirtualHost>`
 
 Next, hit `esc` , type `:`  , and type `wq` *w* for write and *q* to quit and then finally hit *enter* to save the file.
@@ -229,10 +238,15 @@ The above diagram is the resulting output.
 Step 5 of 2 - Copy the following and replace the above content with this:
 
 `<IfModule mod_dir.c>
+
         #Change this:
+        
         #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+        
         #To this:
+        
         DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+        
 </IfModule>`
  
 ![php enable mod](images/step5_3_php_index_php_custom.jpg)
