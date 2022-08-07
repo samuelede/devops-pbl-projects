@@ -74,7 +74,7 @@ The objective of these steps are to setup our server environment to enable us in
 
 
  
-**Step 1 – Installing apache and updating firewall**
+### Step 1 – Installing apache and updating firewall
 Apache HTTP Server is the most widely used web server software. Developed and maintained by Apache Software Foundation, Apache is an open source software available for free. It runs on 67% of all webservers in the world.
 Our goal with this  installation is to:
 Install an apache server on our ubuntu virtual machine
@@ -108,7 +108,7 @@ Step 1 of 5 - to test our server default page on a browser, open a browser and t
 Step 1 of 6 - Another way to check our ip address rather than through the aws console  is to type in curl -s http://<ip-address>/latest/meta-data/public-ipv4
 As shown above.
 
-**Step 2 – Installing MySQL**
+### Step 2 – Installing MySQL
 In step 2 we will install a Database Management System (DBMS) to be able to store and manage data for your site in a relational database. MySQL is a popular relational database management system used within PHP environments, so we will use it in our project.
 
 ![install mysql server](images/step2_1_install_mysql_server.jpg)
@@ -139,7 +139,7 @@ This would always prompt for a password everytime we want to access the mysql co
 
 
 
-**Step 3 – Installing PHP**
+### Step 3 – Installing PHP
 
 Now that we have Apache installed to serve your content and MySQL installed to store and manage your data. PHP is the component of our setup that will process code to display dynamic content to the end user. In addition to the php package, you’ll need 
 php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases. You’ll also need libapache2-mod-php to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies.
@@ -158,17 +158,21 @@ After this, we would have successfully installed all components of the LAMP (Lin
 
 
 
-Step 4 – Creating a Website Virtual Host using APACHE
+### Step 4 – Creating a Website Virtual Host using APACHE
 In step 4, we will set up a domain called projectlamp, but you can replace this with any domain of your choice.
 Apache on Ubuntu 20.04 has one server block enabled by default that is configured to serve documents from the /var/www/html directory.
 We will leave this configuration as is and will add our own directory next next to the default one.
 
+![virtual host settings](images/step4_1_virtual_host_settings.jpg)
+ 
 Step 4 of 1 - Type in the command sudo mkdir /var/www/projectlamp to create a new directory/folder in our php installation. The command mkdir in linux creates a folder followed by the  path of the new folder location.
 Next, type cd /var/www/projectlamp to change directory to the new folder location as shown above. To assign ownership of the directory, also type 
 sudo chown -R $USER:$USER /var/www/projectlamp
 The we create a new configuration file in apache’s sites-available directory with the following command, sudo vi /etc/apache2/sites-available/projectlamp.conf
 After running the above command, a blank file is created and opened as shown below.
 
+![configuration file settings](images/step4_2_conf_file_settings.jpg)
+ 
 Step 4 of 2 - Type i and paste the following code into the configuration file as show in the image above:
 <VirtualHost *:80>
     ServerName projectlamp
@@ -180,9 +184,14 @@ Step 4 of 2 - Type i and paste the following code into the configuration file as
 </VirtualHost>
 Next, hit esc , type :  , and type wq w for write and q to quit and then finally hit enter to save the file.
 
+![enable virtual host](images/step4_3_enable_virtual_host.jpg)
+ 
 Step 4 of 3 - Next type sudo ls /etc/apache2/sites-available to show the available files in the directory as shown above.
 The following 000-default.conf  default-ssl.conf  projectlamp.conf displays confirming the newly created file and other files as shown in the image above.
 Next, we type sudo a2ensite projectlamp to enable our projectlamp as our virtual host and the root directory of our web application as shown above.
+
+![public host index page](images/step4_3_public_host_indexpage.jpg) 
+ 
 Next, type sudo a2dissite 000-default to disable abache’s default website
 Next, type sudo apache2ctl configtest to confirm our configuratoin file is syntax error free
 Finally, type sudo systemctl reload apache2 to reload apache for changes to take effect.
@@ -196,12 +205,16 @@ Our html page shows successfully as shown in the above image. This will be the t
 
 
 
-Step 5 – Enable PHP on the Website
+### Step 5 – Enable PHP on the Website
 The default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file. This is useful for setting up maintenance pages in PHP applications, by creating a temporary index.html file containing an informative message to visitors.
 In case you want to change this behavior, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order in which the index.php file is listed within the DirectoryIndex directive:
 
+![php enable mod](images/step5_1_php_mod_enable.jpg) 
+ 
 Step 5 of 1 - In the command line, type in sudo vim /etc/apache2/mods-enabled/dir.conf
 The above diagram is the resulting output.
+ 
+![php enable mod](images/step5_2_php_mod_change_save.jpg)  
 
 Step 5 of 2 - Copy the following and replace the above content with this:
 <IfModule mod_dir.c>
@@ -210,10 +223,14 @@ Step 5 of 2 - Copy the following and replace the above content with this:
         #To this:
         DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 </IfModule>
-
+ 
+![php enable mod](images/step5_3_php_index_php_custom.jpg)
+ 
 Step 5 of 3 - After saving the file, close and refresh the server using the following command to effect the changes. sudo systemctl reload apache2
 
 Next, we will create a PHP script to test our PHP configurations are run correctly.
+
+![php index php custom edit](images/step5_4_php_index_php_custom_edit.jpg)
 
 Step 5 of 4 - To create a new PHP file, type vim /var/www/projectlamp/index.php this will open a blank file. Add the following code to the file.
 <?php
@@ -221,11 +238,14 @@ phpinfo();
 
 Save and close the file. 
 
+![php index public default](images/step5_5_php_index_public_default.jpg)
+
 Step 5 of 5 -  Then refresh the page in the browser to see the changes. The above page appears in our browser and provides the PHP  information on our server, used for debugging and ensuring the settings are up to speed.
 
+![php index remove default](images/step5_6_php_index_remove_default.jpg)
 
 Step 5 of 6 - After checking the PHP settings, we need to remove the file because it contains critical server information about our PHP envronment.
 Use the rm command to remove the file by typing the following:
-sudo rm /var/www/projectlamp/index.php
+'sudo rm /var/www/projectlamp/index.php'
 This completes all the requirements for our project 1. 
 
