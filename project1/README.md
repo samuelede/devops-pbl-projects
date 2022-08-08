@@ -136,7 +136,7 @@ Step 2 of 3 - to login to our  installed mysql database server, type `sudo mysql
 
 Step 2 of 4 - To make our sql server more secure with a password, we use the following command to achieve this.
 
-` sudo mysql_secure installation `
+` sudo mysql_secure_installation `
 Answer ` y ` for yes and/or anything else. Follow the prompts and type in a secure password to complete the process as shown above.
 
 ![mysql changne password](images/step2_5_mysql_change_password.jpg)
