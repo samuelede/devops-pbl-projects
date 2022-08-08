@@ -130,7 +130,8 @@ A green active status confirms our mysql server installation in the above diagra
 
 ![mysql command line](images/step2_3_mysql_commandline.jpg)
 
-Step 2 of 3 - to login to our  installed mysql database server, type `sudo mysql` in the terminal prompt. The above image shows the resulting output and new mysql> prompt. Type `exit` to exit the mysql shell.
+Step 2 of 3 - to login to our  installed mysql database server, type `sudo mysql` in the terminal prompt. 
+Then `ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘PassWord.1’;` The above image shows the resulting output and new mysql> prompt. Type `exit` to exit the mysql shell.
 
 ![mysql set strong password](images/step2_4_mysql_set_strongpassword.jpg)
 
