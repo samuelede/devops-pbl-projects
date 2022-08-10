@@ -1,21 +1,17 @@
 
 
-Project 2 Report
+# DevOps PBL with AWS
+# Project 2 Report
 
-Darey.io - DevOps Project Base Learning Project2 Documentation
+## Darey.io - DevOps Project Based Learning Project 2 Documentation
 
 JULY 2022
 
-LEMP STACK IMPLEMENTATION
+## LEMP STACK IMPLEMENTATION
 
 
 
-
-
-
-
-
-STEP 0 - Preparing prerequisites
+### STEP 0 - Preparing prerequisites
 
 What is Lemp in Linux?
 LEMP is an open-source web application stack used to develop web applications. The term LEMP is an acronym that represents L for the Linux Operating system, Nginx (pronounced as engine-x, hence the E in the acronym) web server, M for MySQL database, and P for PHP scripting language. (curled from geeksforgeeks.org)
@@ -28,22 +24,25 @@ Step 1 - Installing the NGINX Web Server
 To enable web pages  to be visible to visitors, we require an Nginx web server to display the web pages. The apt  package manager is used to install this feature. 
 We begin by installing Nginx using the following commands:
 
-
+![install nginx server](images/step1_1_install_ngnxserver.png)
 Step 1 of 1 - Type the following at the terminal as shown above.
 sudo apt update hit enter then type sudo apt install nginx
 At the prompt, type y to confirm and continue Nginx installation.
 
-
+![check nginx server status](images/step1_2_check_ngnxserver_status.png)
 Step 1 of 2 - After the installation is complete, run the following command to check the status of the installation. sudo systemctl status nginx
 
-
+![check nginx server status](images/step1_3_ngnxserver_status.png)
 Step 1 of 3 - The green active (runing) state confirms a successful Nginx server installation also suggesting the launch of the web server in the cloud. Type q if you want to exit the server.
 
+![check nginx server url](images/step1_4_ngnxserver_url.png)
 
 Step 1 of 4 - Next, we can access our webpage via port 80, type the following commands to achieve this:  curl http://localhost:80 or curl http://127.0.0.1:80
 The first url uses the DNS name to access the web server while the second url uses the server IP address. 
 
 To test our web server on a browser, we type the follwoing command.
+
+![check nginx browser](images/step1_5_ngnxserver_browser.png)
 
 Step 1 of 5 - In the browser type http://<Public-IP-Address>:80
 
