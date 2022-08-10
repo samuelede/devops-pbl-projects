@@ -27,31 +27,33 @@ We begin by installing Nginx using the following commands:
 ![install nginx server](images/step1_1_install_ngnxserver.png)
 
 Step 1 of 1 - Type the following at the terminal as shown above.
-sudo apt update hit enter then type sudo apt install nginx
-At the prompt, type y to confirm and continue Nginx installation.
+`sudo apt update` hit enter then type `sudo apt install nginx`
+At the prompt, type ` y ` to confirm and continue Nginx installation.
 
 ![check nginx server status](images/step1_2_check_ngnxserver_status.png)
 
-Step 1 of 2 - After the installation is complete, run the following command to check the status of the installation. sudo systemctl status nginx
+Step 1 of 2 - After the installation is complete, run the following command to check the status of the installation. 
+`sudo systemctl status nginx`
 
 ![check nginx server status](images/step1_3_ngnxserver_status.png)
 
-Step 1 of 3 - The green active (runing) state confirms a successful Nginx server installation also suggesting the launch of the web server in the cloud. Type q if you want to exit the server.
+Step 1 of 3 - The green active (runing) state confirms a successful Nginx server installation also suggesting the launch of the web server in the cloud. Type `q` if you want to exit the server.
 
 ![check nginx server url](images/step1_4_ngnxserver_url.png)
 
-Step 1 of 4 - Next, we can access our webpage via port 80, type the following commands to achieve this:  curl http://localhost:80 or curl http://127.0.0.1:80
+Step 1 of 4 - Next, we can access our webpage via port 80, type the following commands to achieve this:  
+`curl http://localhost:80` or `curl http://127.0.0.1:80`
 The first url uses the DNS name to access the web server while the second url uses the server IP address. 
 
 To test our web server on a browser, we type the follwoing command.
 
 ![check nginx browser](images/step1_5_ngnxserver_browser.png)
 
-Step 1 of 5 - In the browser type http://<Public-IP-Address>:80
+Step 1 of 5 - In the browser type `http://<Public-IP-Address>:80`
 
 Another method of accessing the server ip address is by typing the following command:
 
-curl -s http://169.254.169.254/latest/meta-data/public-ipv4
+`curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
 The above image shows the current ip address of our working AWS server.
 
 ![alternate ip check](images/step1_6_alternate_ip_check.png)
@@ -61,25 +63,26 @@ The above image shows the current ip address of our working AWS server.
 
 In step 2, the next step is to install our database (DBMS) server, now that our Nginx server installation is complete.  
 
-Again we use the ‘apt’ command to gather the requirements and install the software.
+Again we use the *‘apt’* command to gather the requirements and install the software.
 
 ![install mysql](images/step2_1_install_mysql_nginx.png)
     
-Step 2 of 1 - Run the command sudo apt install mysql-server and hit enter. Type y to accept and continue the process as showen in the image above.
+Step 2 of 1 - Run the command `sudo apt install mysql-server` and hit enter. Type `y` to accept and continue the process as showen in the image above.
 
 ![mysql console](images/step2_2_mysql_console.png)
     
-Step 2 of 2 - At the command line type sudo mysql to launch the mysql console as shown above.
+Step 2 of 2 - At the command line type `sudo mysql` to launch the mysql console as shown above.
 
 ![mysql update password](images/step2_3_mysql_update_password.png)
     
 Step 2 of 3 - Run the following command and hit enter to update the root default password. 
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
-Next, type exit to exit from the mysql shell.
+
+`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';`
+Next, type `exit` to exit from the mysql shell.
 
 ![mysql set password](images/step2_4_mysql_set_password.png)
     
-Step 2 of 4 - Next, run the command sudo mysql_secure_installation and follow the steps, firstly typing the default root password ‘PassWord.1’ and following the instructions and prompts as shown below.
+Step 2 of 4 - Next, run the command `sudo mysql_secure_installation` and follow the steps, firstly typing the default root password `PassWord.1` and following the instructions and prompts as shown below.
 
 ![mysql set password](images/step2_5_mysql_set_password_steps.png)
 
@@ -92,7 +95,7 @@ To install PHP to process our codes and generate dynamic content via the web ser
 
 ![install php](images/step3_1_install_php.png)
     
-Step 3 of 1 - Run the following command sudo apt install php-fpm php-mysql to begin the PHP installation process, type y and hit Enter to to continue as shown above.
+Step 3 of 1 - Run the following command `sudo apt install php-fpm php-mysql` to begin the PHP installation process, type `y` and hit *Enter* to to continue as shown above.
     
 ![install php complete](images/step3_2_install_php_complete.png)
 
@@ -105,15 +108,19 @@ The first step is to crreate a web directory for our domain as follows:
 ![ngix php config](images/step4_1_ngix_php_config.png)
     
 Step 4 of 1 - Type the following commands to create a web directory, assign permissions and set a configuration file.
-sudo mkdir /var/www/projectLEMP
-sudo chown -R $USER:$USER /var/www/projectLEMP
-sudo nano /etc/nginx/sites-available/projectLEMP
+
+`sudo mkdir /var/www/projectLEMP`
+
+`sudo chown -R $USER:$USER /var/www/projectLEMP`
+
+`sudo nano /etc/nginx/sites-available/projectLEMP`
 
 ![ngix php config](images/step4_2_ngix_php_config.png)
     
-Step 4 of 2 - Copy and paste the follwoing code into the terminal by right clicking in the terminal space.  The type CTRL+x and then y and ENTER  to save, close and confirm changes.
+Step 4 of 2 - Copy and paste the follwoing code into the terminal by right clicking in the terminal space.  The type `CTRL+X` and then `y` and *ENTER*  to save, close and confirm changes.
 
-` #/etc/nginx/sites-available/projectLEMP
+``` 
+#/etc/nginx/sites-available/projectLEMP
 server {
     listen 80;
     server_name projectLEMP www.projectLEMP;
@@ -133,28 +140,31 @@ server {
     location ~ /\.ht {
         deny all;
     }
-} `
+} 
+```
 
 ![ngix php config](images/step4_3_ngix_php_config.png)
     
 Step 4 of 3 - Run the command 
-sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/
+`sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/`
 
 ![ngix php config](images/step4_4_ngix_php_config.png)
     
 Step 4 of 4 - Also run the following commands to complete the nginx php installation
-sudo nginx -t
+`sudo nginx -t`
 The following message confirms a successful config test
-nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
+*nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful*
 
-sudo unlink /etc/nginx/sites-enabled/default
-sudo systemctl reload nginx
-sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
+`sudo unlink /etc/nginx/sites-enabled/default`
+
+`sudo systemctl reload nginx`
+
+`sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html`
 
 ![ngix php config](images/step4_5_ngix_php_browser.png)
     
-Step 4 of 5 - Next go to your browser and type http://<Public-IP-Address>:80
+Step 4 of 5 - Next go to your browser and type `http://<Public-IP-Address>:80`
 The Hello text from th echo command confirms the Nginx site processes our index file properly.
 
 
@@ -166,20 +176,24 @@ At this stage our LEMP stack setup is complete. To test our server can process .
 
 ![create php file](images/step5_1_create_phpfile.png)
     
-Step 5 of 1 - Run the command sudo nano /var/www/projectLEMP/info.php
+Step 5 of 1 - Run the command `sudo nano /var/www/projectLEMP/info.php`
 Copy and paste the following by right clicking in the terminal:
-`<?php
-phpinfo();`
-Type CTRL+X and then Y and finally hit ENTER TO SAVE AND EXIT.
+```
+<?php
+phpinfo();
+```
+Type *CTRL+X* and then `Y` and finally hit *ENTER* TO SAVE AND EXIT.
 
 To test our .php file.
 ![test php file](images/step5_2_test_phpfile.png)
 
-Step 5 of 2 - Type the following in a browser as shown above; http://`server_domain_or_IP`/info.php
+Step 5 of 2 - Type the following in a browser as shown above; `http://<server_domain_or_IP>/info.php`
 
 ![test php file](images/step5_3_remove_phpfile.png)
 
-Step 5 of 3 - Run the following command to remove the created .php file as it contains sensitive server details. sudo rm /var/www/your_domain/info.php
+Step 5 of 3 - Run the following command to remove the created .php file as it contains sensitive server details. 
+
+`sudo rm /var/www/your_domain/info.php`
 
 
 
@@ -193,43 +207,52 @@ The first step will be to create a database named example_database including a u
 ![create database](images/step6_1_create_database.png)
 
 Step 6 of 1 - Run the following command sudo mysql or sudo mysql - p if a database password is already set.
-At the mysql console, type CREATE DATABASE example_database; as shown above.
+At the mysql console, type `CREATE DATABASE example_database;` as shown above.
 
 ![database privilleges](images/step6_2_database_privl.png)
 
 Step 6 of 2 - Run the following commands at the mysql prompt mysql>  to create a database user and grand privileges to the created user as shown above.
-CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
-GRANT ALL ON example_database.* TO 'example_user'@'%';
-Then run exit to exit the console
+
+`CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';`
+
+`GRANT ALL ON example_database.* TO 'example_user'@'%';`
+Then run `exit` to exit the console
 
 ![create database tables](images/step6_3_create_database_tables.png)
 
-Step 6 of 3 - Next, we test the new user access by running the following command, then create a new table for our database as shown above. mysql -u example_user -p
-At the mysql prompt, next type SHOW DATABASES; to view available databases.
+Step 6 of 3 - Next, we test the new user access by running the following command, then create a new table for our database as shown above. `mysql -u example_user -p`
+At the mysql prompt, next type `SHOW DATABASES;` to view available databases.
 Next, type the following MySQL query to create a table.
- CREATE TABLE example_database.todo_list (
+```
+CREATE TABLE example_database.todo_list (
  item_id INT AUTO_INCREMENT,
  content VARCHAR(255),
 PRIMARY KEY(item_id)
 );
+```
 
 ![create database tables](images/step6_4_update_database_tables.png)
 
 Step 6 of 4 - To insert some records into our table, run the following SQL commands:
-INSERT INTO example_database.todo_list (content) VALUES ("My first important item");
+
+`INSERT INTO example_database.todo_list (content) VALUES ("My first important item");`
 Editing the query values to add more content.
 
 To view the saved/inserted records, run the following SQL command.
-SELECT * FROM example_database.todo_list;
-The result would correspond with the image above. Next, type exit to exit the mysql console.
+
+`SELECT * FROM example_database.todo_list;`
+The result would correspond with the image above. Next, type exit to `exit` the mysql console.
 
 Next, we create a .php file to access our database record and display them in the browser.
 
 ![create database tables](images/step6_5_console.png)
 
 Step 6 of 5 - Run the following command in the terminal to create and edit a .php file for our todo list.
-nano /var/www/projectLEMP/todo_list.php
+
+`nano /var/www/projectLEMP/todo_list.php`
 Next, copy the following PHP code and righ click in the terminal area to paste the content
+
+```
 <?php
 $user = "example_user";
 $password = "password";
@@ -246,7 +269,8 @@ try {
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
-}?>
+}?> 
+```
 
 ![create php file](images/step6_5_create_phpfile.png)
 
@@ -256,6 +280,6 @@ Save the file and exit.
 ![create php file](images/step6_6_todo_list.png)
     
 Step 6 of 6 - To view the resulttep 6 of 5 - Run the following command in the terminal to create and edit a .php file for our todo list.
-http://<Public_domain_or_IP>/todo_list.php
+`http://<Public_domain_or_IP>/todo_list.php`
 
 We have successfully cofigured and tested our Ngix server with PHP and MySQL.
