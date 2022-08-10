@@ -19,20 +19,23 @@ In order to complete this project you will need an AWS account and a virtual ser
 If you do not have an AWS account – go back to Project 1 Step 0 to sign in to AWS free tier account and create a new EC2 Instance of t2.nano family with Ubuntu Server 22.04 LTS (HVM) image and logi to the via the terminal.
 
 
-Step 1 - Installing the NGINX Web Server 
+### Step 1 - Installing the NGINX Web Server 
 
 To enable web pages  to be visible to visitors, we require an Nginx web server to display the web pages. The apt  package manager is used to install this feature. 
 We begin by installing Nginx using the following commands:
 
 ![install nginx server](images/step1_1_install_ngnxserver.png)
+
 Step 1 of 1 - Type the following at the terminal as shown above.
 sudo apt update hit enter then type sudo apt install nginx
 At the prompt, type y to confirm and continue Nginx installation.
 
 ![check nginx server status](images/step1_2_check_ngnxserver_status.png)
+
 Step 1 of 2 - After the installation is complete, run the following command to check the status of the installation. sudo systemctl status nginx
 
 ![check nginx server status](images/step1_3_ngnxserver_status.png)
+
 Step 1 of 3 - The green active (runing) state confirms a successful Nginx server installation also suggesting the launch of the web server in the cloud. Type q if you want to exit the server.
 
 ![check nginx server url](images/step1_4_ngnxserver_url.png)
@@ -51,29 +54,34 @@ Another method of accessing the server ip address is by typing the following com
 curl -s http://169.254.169.254/latest/meta-data/public-ipv4
 The above image shows the current ip address of our working AWS server.
 
+![alternate ip check](images/step1_6_alternate_ip_check.png)
 
 
-Step 2 - Installing MySQL
+### Step 2 - Installing MySQL
 
 In step 2, the next step is to install our database (DBMS) server, now that our Nginx server installation is complete.  
 
 Again we use the ‘apt’ command to gather the requirements and install the software.
 
-
+![install mysql](images/step2_1_install_mysql_nginx.png)
+    
 Step 2 of 1 - Run the command sudo apt install mysql-server and hit enter. Type y to accept and continue the process as showen in the image above.
 
-
+![mysql console](images/step2_2_mysql_console.png)
+    
 Step 2 of 2 - At the command line type sudo mysql to launch the mysql console as shown above.
 
-
+![mysql update password](images/step2_3_mysql_update_password.png)
+    
 Step 2 of 3 - Run the following command and hit enter to update the root default password. 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
 Next, type exit to exit from the mysql shell.
 
-
+![mysql set password](images/step2_4_mysql_set_password.png)
+    
 Step 2 of 4 - Next, run the command sudo mysql_secure_installation and follow the steps, firstly typing the default root password ‘PassWord.1’ and following the instructions and prompts as shown below.
 
-
+![mysql set password](images/step2_5_mysql_set_password_steps.png)
 
 
 
