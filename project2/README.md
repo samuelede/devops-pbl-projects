@@ -86,15 +86,19 @@ Step 2 of 4 - Next, run the command sudo mysql_secure_installation and follow th
 
 
 
-Step 3 - Installing PHP
+### Step 3 - Installing PHP
 
 To install PHP to process our codes and generate dynamic content via the web server, we need to install a few packages from the command line so our Nginx server can process PHP requestst. 
 
+    ![install php](images/step3_1_install_php.png)
+    
 Step 3 of 1 - Run the following command sudo apt install php-fpm php-mysql to begin the PHP installation process, type y and hit Enter to to continue as shown above.
+    
+![install php complete](images/step3_2_install_php_complete.png)
 
 All done.
 
-Step4 - Configuring NGINX to use PHP Processor 
+### Step4 - Configuring NGINX to use PHP Processor 
 
 The first step is to crreate a web directory for our domain as follows:
 
