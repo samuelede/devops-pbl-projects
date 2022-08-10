@@ -131,7 +131,9 @@ A green active status confirms our mysql server installation in the above diagra
 ![mysql command line](images/step2_3_mysql_commandline.jpg)
 
 Step 2 of 3 - to login to our  installed mysql database server, type `sudo mysql` in the terminal prompt. 
-Then `ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘PassWord.1’;` The above image shows the resulting output and new mysql> prompt. Type `exit` to exit the mysql shell.
+Then 
+
+`ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘PassWord.1’;` The above image shows the resulting output and new mysql> prompt. Type `exit` to exit the mysql shell.
 
 ![mysql set strong password](images/step2_4_mysql_set_strongpassword.jpg)
 
@@ -186,14 +188,16 @@ After running the above command, a blank file is created and opened as shown bel
  
 Step 4 of 2 - Type ` i ` and paste the following code into the configuration file as show in the image above:
 
-`<VirtualHost *:80>
+```
+<VirtualHost *:80>
     ServerName projectlamp    
     ServerAlias www.projectlamp     
     ServerAdmin webmaster@localhost    
     DocumentRoot /var/www/projectlamp    
     ErrorLog ${APACHE_LOG_DIR}/error.log    
     CustomLog ${APACHE_LOG_DIR}/access.log combined    
-</VirtualHost>`
+</VirtualHost>
+```
 
 Next, hit `esc` , type `:`  , and type `wq` *w* for write and *q* to quit and then finally hit *enter* to save the file.
 
@@ -209,7 +213,10 @@ Next, type `sudo a2dissite 000-default` to disable abache’s default website
 Next, type `sudo apache2ctl configtest` to confirm our configuratoin file is syntax error free
 Finally, type `sudo systemctl reload apache2` to reload apache for changes to take effect.
 Next we need to create a new file for our empty web root location. We create an index.html file for this purpose. Copy and pase the following command to perform this task as shown in the image above.
-`sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html`
+```
+sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
+```
+
 Next, in our browser, we type the following to see the changes. `http://<Public-IP-Address>:80`
 
 Our html page shows successfully as shown in the above image. This will be the temporary default page until we install an application with an index.php page to replace it.
@@ -231,12 +238,14 @@ The above diagram is the resulting output.
 
 Step 5 of 2 - Copy the following and replace the above content with this:
 
-`<IfModule mod_dir.c>
+``` 
+<IfModule mod_dir.c>
         #Change this:        
         #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm        
         #To this:        
         DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm        
-</IfModule>`
+</IfModule>
+```
  
 ![php enable mod](images/step5_3_php_index_php_custom.jpg)
  
