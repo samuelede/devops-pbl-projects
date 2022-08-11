@@ -17,10 +17,10 @@ JULY 2022
 ## Introduction & Background
 
 MERN Web stack consists of following components:
-MongoDB: A document-based, No-SQL database used to store application data in a form of documents.
-ExpressJS: A server side Web Application framework for Node.js.
-ReactJS: A frontend framework developed by Facebook. It is based on JavaScript, used to build User Interface (UI) components.
-Node.js: A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
+*MongoDB:* A document-based, No-SQL database used to store application data in a form of documents.
+*ExpressJS:* A server side Web Application framework for Node.js.
+*ReactJS:* A frontend framework developed by Facebook. It is based on JavaScript, used to build User Interface (UI) components.
+*Node.js:* A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
 In project 3, we will implement a web solution on MERN stack in AWS Cloud.
 ![MERN Stack](images/MERN-stack.png)
 
@@ -29,7 +29,7 @@ In project 3, we will implement a web solution on MERN stack in AWS Cloud.
 Step 0 - Preparing prerequisites 
 
 In order to complete this project you will need an AWS account and a virtual server with Ubuntu Server OS.
-If you do not have an AWS account – go back to Project 1 Step 0 to sign in to AWS free tier account and create a new EC2 Instance of t2.nano family with Ubuntu Server 22.04 LTS (HVM) image and logi to the via the terminal.
+If you do not have an AWS account – go back to *Project 1 Step 0* to sign in to AWS free tier account and create a new EC2 Instance of t2.nano family with Ubuntu Server 22.04 LTS (HVM) image and logi to the via the terminal.
 
 
 Step 1 - BackEnd Configuration
@@ -37,39 +37,40 @@ Step 1 - BackEnd Configuration
 ![Update Server](images/step1_1_update_upgrade_server.png)
 
 Step 1 of 1 - After setting up and/or starting a new instance, run the command: 
-sudo apt update and sudo apt upgrade as shown above to get the latest ubuntu software. At the prompt type  y and hit enter to continue the process. Select all options available to restart if applicable and then ok to complete the restart process.
+`sudo apt update` and `sudo apt upgrade` as shown above to get the latest ubuntu software. At the prompt type  y and hit enter to continue the process. Select all options available to restart if applicable and then ok to complete the restart process.
 
 ![Find node link](images/step1_2_find_nodelink.png)
 
 Step 1 of 2 - Run the folowing command to get and the Node.js location for installation.
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+`curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
 
 ![Install nodejs](images/step1_3_install_nodejs.png)
 
-Step 1 of 3 - Run the command sudo apt-get install -y nodejs to install Node.js. 
+Step 1 of 3 - Run the command `sudo apt-get install -y nodejs` to install Node.js. 
 This command installs nodejs and npm. NPM is a package manager for Node like apt for Ubuntu. 
 
 ![check node js version](images/step1_4_check_nodejsnpm_version.png)
 
 Step 1 of 4 - Verify node installation and create a new directory for our Todo application with the following cmmands at the terminal:
- node -v then npm -v then mkdir Todo next ls to view the directory contents.
+`node -v` then `npm -v` then `mkdir Todo` next `ls` to view the directory contents.
 Run cd Todo to move into our application directory, then run npm init to initialize the project.
 
 ![set version details](images/step1_5_set_version_details.png)
 ![xcheck package](images/step1_5_xcheck_package.png)
 
-Step 1 of 5 - At the prompt type yes and hit enter and provide suitable answers at the prompt s shown above. Then run ls to confirm the package.json file has been created as shown below.
+Step 1 of 5 - At the prompt type `yes` and hit enter and provide suitable answers at the prompt shown above. Then run `ls` to confirm the package.json file has been created as shown below.
 
 
 ![Install Express](images/step1_6_install_express.png)
 
-Step 1 of 6 - Next, install Express by running the command npm install express 
-Then create a file indexjs with touch.js with the command touch index.js
-Then run ls to confirm the index.js file was created.
-Next, install the dotenv module with the command npm install dotenv
-Then, run vim index.js to edit the file.
+Step 1 of 6 - Next, install Express by running the command `npm install express `
+Then create a file indexjs with touch.js with the command `touch index.js`
+Then run `ls` to confirm the index.js file was created.
+Next, install the dotenv module with the command `npm install dotenv`
+Then, run `vim index.js` to edit the file.
 Copy and paste the following codes by right clicking in the terminal to paste into the file.
 
+```
 const express = require('express');
 require('dotenv').config();
 
@@ -90,24 +91,26 @@ res.send('Welcome to Express');
 app.listen(port, () => {
 console.log(`Server running on port ${port}`)
 });
+```
 
 ![Edit js file](images/step1_7_edit_jsfile.png)
 
-Step 1 of 7 - After pasting the code, note the port number specified as 5000 in the code. Then hit the esc key and type :w to save the file and :qa to exit vim.
+Step 1 of 7 - After pasting the code, note the port number specified as 5000 in the code. Then hit the `esc` key and type `:w` to save the file and `:qa` to exit vim.
 
 ![Start node server](images/step1_8_start_note_serve.png)
 
-Step 1 of 8 - Next, run the following command node index.js to start the node server and test if it works. To exit node type CTRL+C
+Step 1 of 8 - Next, run the following command `node index.js` to start the node server and test if it works. To exit node type *CTRL+C* 
 
 
 Routes - There are three actions that our To-Do application needs to perform:
 Create a new task 2. Display task list 3. Delete completed task
-Each task will be associated with some particular endpoint and will use different standard HTTP request methods: POST, GET, DELETE.
-For each task, we need to create routes that will define various endpoints that the To-do app will depend on. So let us create a folder routes
+Each task will be associated with some particular endpoint and will use different standard *HTTP request methods: POST, GET, DELETE.*
+For each task, we need to create *routes* that will define various endpoints that the To-do app will depend on. So let us create a folder `routes`
 
 ![routes](images/step1_10_routes.png)
 
-Step 1 of 10 - To change the directory routes folder, run cd routes in the terminal. Next, run touch api.js and next vim api.js to edit the new created file. Copy and paste the code below and save. The image above shows a view of the pasted code.
+Step 1 of 10 - To change the directory routes folder, run `cd routes` in the terminal. Next, run `touch api.js` and next `vim api.js` to edit the new created file. Copy and paste the code below and save. The image above shows a view of the pasted code.
+```
 const express = require ('express');
 const router = express.Router();
 
@@ -124,7 +127,7 @@ router.delete('/todos/:id', (req, res, next) => {
 })
 
 module.exports = router;
-
+```
 
 ![models](images/step1_11_models.png)
 
