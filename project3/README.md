@@ -56,7 +56,7 @@ Step 1 of 4 - Verify node installation and create a new directory for our Todo a
 Run cd Todo to move into our application directory, then run npm init to initialize the project.
 
 ![set version details](images/step1_5_set_version_details.png)
-![xcheck package](images/step1_5_xcheck_pakage.png)
+![xcheck package](images/step1_5_xcheck_package.png)
 
 Step 1 of 5 - At the prompt type yes and hit enter and provide suitable answers at the prompt s shown above. Then run ls to confirm the package.json file has been created as shown below.
 
@@ -95,13 +95,17 @@ console.log(`Server running on port ${port}`)
 
 Step 1 of 7 - After pasting the code, note the port number specified as 5000 in the code. Then hit the esc key and type :w to save the file and :qa to exit vim.
 
-![Find node link](images/step1_8_start_note_serve.png)
+![Start node server](images/step1_8_start_note_serve.png)
 
-Step 1 of 8 - Next, run the following command node index.js to start the node server and test if it works. To exit node type CTRL C
+Step 1 of 8 - Next, run the following command node index.js to start the node server and test if it works. To exit node type CTRL+C
+
+
 Routes - There are three actions that our To-Do application needs to perform:
 Create a new task 2. Display task list 3. Delete completed task
 Each task will be associated with some particular endpoint and will use different standard HTTP request methods: POST, GET, DELETE.
 For each task, we need to create routes that will define various endpoints that the To-do app will depend on. So let us create a folder routes
+
+![routes](images/step1_10_routes.png)
 
 Step 1 of 10 - To change the directory routes folder, run cd routes in the terminal. Next, run touch api.js and next vim api.js to edit the new created file. Copy and paste the code below and save. The image above shows a view of the pasted code.
 const express = require ('express');
@@ -122,7 +126,9 @@ router.delete('/todos/:id', (req, res, next) => {
 module.exports = router;
 
 
+![models](images/step1_11_models.png)
 
+![mongoos](images/step1_12_mongoos.png)
 
 Step 1 of 11 - Since the app will use of Mongodb which is a NoSQL database, we need to create a model. of Mongodb which is a NoSQL database, we need to create a model.
 Change directory back Todo folder with cd .. and install Mongoose npm install mongoose 
@@ -146,6 +152,7 @@ const Todo = mongoose.model('todo', TodoSchema);
 
 module.exports = Todo;
 
+![api](images/step1_13_api.png)
 
 Step 1 of 13 - Now we need to update our routes from the file api.js in ‘routes’ directory to make use of the new model.
 In Routes directory, open api.js with vim api.js delete the code inside with :%d command and paste there code below into it then save and exit
@@ -185,7 +192,7 @@ Next we need to create a MongoDB database.  Sign up here. Follow the sign up pro
 
 
 
-
+![api](images/step1_14_api.png)
 
 Step 1 of 14 - In the index.js file, we specified process.env to access environment variables, but we have not yet created this file. So we need to do that now. Create a file in your Todo directory and name it .env by running touch .env then vi .env
 
