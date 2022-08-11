@@ -249,47 +249,54 @@ console.log(`Server running on port ${port}`)
 
 Next step, we test our api using Postman to test our API. Click HERE to learn how perform CRUD operartions on Postman
 ** Had a few issues getting positive requests on postman
+![postman api](images/step1_15_postman_api.png)
 
 
 
-
-Step  2 - FRONTEND CREATION
+### Step  2 - FRONTEND CREATION
 
 Having created the functionality from the backend and API, we now need to create a user interface for the browse to communicate with the applicaiton via our API. To begin the frontend of our Todo app, we run the create-reat-app command to setup our app. 
 
-
+![install react](images/step2_1_install_react.png)
+ 
 Step 2 of 1 - In the Todo directory run npx create-react-app client
 This will create the client directory in the Todo where the react code will reside. Select y to proceed at the prompt and hit enter.
 
-
+![install dependencies](images/step2_2_install_dependencies.png)
+ 
 Step 2 of 2 - Some dependencies need to be installed before testing the react app.
- First, we install concurrently by running the following command 
+First, we install concurrently by running the following command 
 npm install concurrently –save-dev
 Next, we install nodemon by running the command npm install nodemon –save-dev
 
-
+![install dependencies](images/step2_3_a_edit_package_json.png)
+ 
 Step 2 of 3 - In the Todo folder, open the package.json file by running vim package.json and replace the script section with the following code as shown above. 
 "scripts": {
 "start": "node index.js",
 "start-watch": "nodemon index.js",
 "dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
 },
+ 
+![edit client package](images/step2_3_b_edit_client_package_json.png)
 
-
-
+![edit package](images/step2_4_edit_package_json.png)
+ 
 Step 2 of 4 - change the directory to client by running cd client open the package.json file running vi package.json in the command line then add the following key pair value to the package.json file
 “Proxy”: “http://localhost:5000”
 The aim of adding the proxyconfiguration is to enable our app accessible directly from a browser on http://localhost:5000 rather than http://localhost:5000/todos
 
-
+![run dev](images/step2_5a_run_dev.png)
+ 
+![run dev](images/step2_5b_run_dev.png)
+ 
 Step 2 of 5 - Next, make sure the path is inside the Todo directory by running cd .. the the following command to configure the server, npm run dev as shown above.
 On completion, the app should be running on localhost:3000
 Type CTRL+Z to exit npm.
 
-
-
-
-
+![create react comp](images/step2_6a_create_react_comp.png)
+![create react comp](images/step2_6b_create_react_comp.png)
+ 
 Step 2 of 6 - Next, we install our react components. First we change the current directory by running cd client then cd src then creating a new directory in src called components with mkdir components. Next, run cd components to move into the components directory and create new files using the command 
 touch Input.js ListTodo.js Todo.js as shown above.
 Next, edit the Input.js file by running the command vi Input.js copy the following code and paste into the terminal and save.
@@ -340,10 +347,14 @@ return (
 export default Input
 
 
-
+![install axios](images/step2_7_install_axios.png)
+ 
 Step 2 of 7 - Next, run cd .. twice to move from the components folder to the clients directory and type the following command npm install axios to install axios a promis based http client as shown in the image above. 
 
+![edit frontend component](images/step2_8a_edit_frontend_component.png)
 
+![edit frontend component](images/step2_8b_edit_frontend_component.png)
+ 
 Step 2 of 8 - To install some frontend components, run the command cd src/components to move to the components directory. Next, run vi ListTodo.js and copy the following code and paste. 
 import React from 'react';
 
@@ -445,7 +456,8 @@ return (
 
 export default App;
 
-
+![edit frontend component](images/step2_8c_edit_frontend_component.png)
+ 
 Exit the editor and open the App.css file using the command vi App.css then copy and paste the following code.
 .App {
 text-align: center;
