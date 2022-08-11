@@ -17,11 +17,12 @@ JULY 2022
 ## Introduction & Background
 
 MERN Web stack consists of following components:
-*MongoDB:* A document-based, No-SQL database used to store application data in a form of documents.
-*ExpressJS:* A server side Web Application framework for Node.js.
-*ReactJS:* A frontend framework developed by Facebook. It is based on JavaScript, used to build User Interface (UI) components.
-*Node.js:* A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
+1. *MongoDB:* A document-based, No-SQL database used to store application data in a form of documents.
+2. *ExpressJS:* A server side Web Application framework for Node.js.
+3. *ReactJS:* A frontend framework developed by Facebook. It is based on JavaScript, used to build User Interface (UI) components.
+4. *Node.js:* A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
 In project 3, we will implement a web solution on MERN stack in AWS Cloud.
+
 ![MERN Stack](images/MERN-stack.png)
 
 
@@ -42,6 +43,7 @@ Step 1 of 1 - After setting up and/or starting a new instance, run the command:
 ![Find node link](images/step1_2_find_nodelink.png)
 
 Step 1 of 2 - Run the folowing command to get and the Node.js location for installation.
+
 `curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
 
 ![Install nodejs](images/step1_3_install_nodejs.png)
@@ -109,7 +111,8 @@ For each task, we need to create *routes* that will define various endpoints tha
 
 ![routes](images/step1_10_routes.png)
 
-Step 1 of 10 - To change the directory routes folder, run `cd routes` in the terminal. Next, run `touch api.js` and next `vim api.js` to edit the new created file. Copy and paste the code below and save. The image above shows a view of the pasted code.
+Step 1 of 10 - To change the directory routes folder, run `cd routes` in the terminal. Next, run `touch api.js` and next 
+`vim api.js` to edit the new created file. Copy and paste the code below and save. The image above shows a view of the pasted code.
 ```
 const express = require ('express');
 const router = express.Router();
@@ -458,7 +461,7 @@ let { todos } = this.state;
 export default Todo;
 ```
 
-Next, change the directory to src by typing cd .. and in the src directory run vi App.js to edit the app file. Copy and paste the following code 
+Next, change the directory to src by typing `cd ..` and in the src directory run `vi App.js` to edit the app file. Copy and paste the following code 
 ```
 import React from 'react';
 
@@ -571,7 +574,7 @@ margin-top: 0;
 
 Exit and save.
 
-Also in the src directory run the command vi index.css
+Also in the src directory run the command `vi index.css`
 Then copy and paste the following code.
 
 ```
@@ -592,7 +595,7 @@ code {
 font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 monospace;
 }
-``
+```
 
 Next, goto the Todo directory by running this command `cd ../..`
 Then run `npm run dev` as shown in the image above.
