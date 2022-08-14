@@ -260,7 +260,7 @@ Copy and paste the code below into *index.html* file.
 </html>
 ```
 
-![start server](images/step4_3_start_servery.png)
+![start server](images/step4_3_start_server.png)
 
 Step 4 of 3 - Change the directory back up to Books with `cd ..` command. Start the server by running this command: `node server.js`
 The server is now up and running, we can connect it via port 3300. You can launch a separate terminal console to test what *curl* command returns locally by running the command: `curl -s http://localhost:3300`
