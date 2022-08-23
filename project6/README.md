@@ -40,4 +40,4 @@ Generally, web, or mobile solutions are implemented based on what is called the 
 3. An EC2 Linux server as a database (DB) server
 
 **We will use RedHat OS for this project**
-By now you should know how to spin up an EC2 instanse on AWS, but if you forgot – refer to *Project1 Step 0.*
+By now you should know how to spin up an EC2 instanse on AWS, but if you forgot – refer to [Project1 Step 0](https://github.com/samuelede/devops-pbl-projects/tree/main/project1#step-0--web-stack-implementation-lamp-stack-in-aws)
