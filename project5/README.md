@@ -27,7 +27,7 @@ Server B name - `mysql client`
 
 ![Install mongodb](images/step5_1_install_sqlserver_checkstatus.png)
 
-2. On mysql server Linux Server install MySQL Server software as done in project1 step 2 and confirming mysql status is running.
+2. On *mysql server* Linux Server install MySQL Server software as done in [project1 step 2](https://github.com/samuelede/devops-pbl-projects/tree/main/project1#step-2--installing-mysql) and confirming mysql status is running.
 
 3. On mysql client Linux Server install MySQL Client software using the commands
  sudo apt update then sudo apt-get mysql-client
