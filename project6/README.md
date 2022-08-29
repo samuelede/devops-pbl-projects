@@ -282,3 +282,40 @@ Step 5 - Run the following commands to configure a new database for wordpress
 `SHOW DATABASES;`
 
 `exit`
+
+
+### Step 6 - Configure WordPress to connect to remote database
+
+![copy private ip](images/step6_0_copy_private_ip.png)
+
+**Step 6 of 0** - Select the Web Server instance and copy the private ip addres. This will be used to open MySQL port 3306 on DB Server EC2 for incoming connections from the web server.
+
+![inbound rule config](images/step6_0_inbound_rule_config.png)
+
+**Step 6 of 1** - Select Security groups under Network & Security menu in the EC2 home page and under actions click edit inbound rules. Edit the **MYSQL/Aurora** source ip by pasting the copied `<ip-address>/32` as shown above.
+
+![install connect mysql](images/step6_2_install_connect_mysql.png)
+
+**Step 6 of 2** - Install MySQL client and test that you can connect from your Web Server to your DB server by using *mysql-client*
+
+`sudo yum install mysql`
+`sudo mysql -u admin -p -h <DB-Server-Private-IP-address>`
+Verify if you can successfully execute `SHOW DATABASES;` command and see a list of existing databases.
+
+![open tcp port 80](images/step6_3_open_tcp_port_80.png)
+
+**Step 6 of 3** - Ensure to change permissions and configuration so Apache could use WordPress: Enable TCP port 80 in Inbound Rules configuration for your Web Server EC2 (enable from everywhere 0.0.0.0/0 or from your workstation’s IP) as shown above.
+
+![test wordpress](images/step6_4_test_wordpress.png)
+
+**Step 6 of 4** - Try to access from your browser the link to your WordPress `http://<Web-Server-Public-IP-Address>/wordpress/`
+
+![connect wordpress](images/step6_5_connect_wordpress.png)
+
+**Step 6 of 5** - As shown above, click continue with the english selection, then fill in the DB credential details in the following page.
+
+![connect wordpress](images/step6_6_connect_success.png)
+
+If you see the above message – it means your WordPress has successfully connected to your remote MySQL database. 
+We have completed configuring a Linux storage susbystem and have also deployed a full-scale Web Solution using WordPress CMS and MySQL RDBMS!
+
