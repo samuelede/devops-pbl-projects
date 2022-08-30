@@ -37,7 +37,7 @@ Server B name - *mysql client*
 
 5. You might need to configure MySQL server to allow connections from remote hosts.
 `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`
-Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this:
+Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this and save.
 
 ![Install mongodb](images/step5_2_edit_mysql_inbound_rules.png)
 
@@ -48,7 +48,6 @@ From *mysql client*  Linux Server connect remotely to *mysql server* Database En
 
 ![edit mysql pass](images/step5_3_edit_mysql_server_password.png)
 
-Check that you have successfully connected to a remote MySQL server and can perform SQL queries:
+Check that you have successfully connected to a remote MySQL server and can perform SQL queries by running the command sudo mysql -p then enter the server password. Then type `Show databases;`
 
-`Show databases;`
 If you see an output similar to the below image, then you have successfully completed this project – you have deloyed a fully functional MySQL Client-Server set up.
