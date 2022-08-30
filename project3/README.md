@@ -30,7 +30,7 @@ In project 3, we will implement a web solution on MERN stack in AWS Cloud.
 ### Step 0 - Preparing prerequisites 
 
 In order to complete this project you will need an AWS account and a virtual server with Ubuntu Server OS.
-If you do not have an AWS account – go back to *Project 1 Step 0* to sign in to AWS free tier account and create a new EC2 Instance of t2.nano family with Ubuntu Server 22.04 LTS (HVM) image and login to the via the terminal.
+If you do not have an AWS account – go back to *Project 1 Step 0* to sign in to AWS free tier account and create a new EC2 Instance of t2.nano family with Ubuntu Server 22.04 LTS (HVM) image and login via the terminal.
 
 
 ### Step 1 - BackEnd Configuration
