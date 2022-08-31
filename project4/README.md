@@ -31,11 +31,21 @@ Node.js (JavaScript runtime environment) – Accepts requests and displays resul
 Task
 In this assignment you are going to implement a simple Book Register web form using MEAN stack.
 
+### Step 0 - Preparing prerequisites
+In order to complete this project you will need an AWS account and a virtual server with Ubuntu Server OS.
+If you do not have an AWS account – go back to [Project 1 Step 0](https://github.com/samuelede/devops-pbl-projects/blob/main/project1/README.md#step-0--web-stack-implementation-lamp-stack-in-aws) to sign in to AWS free tier account and create a new EC2 Instance of t2.nano family with Ubuntu Server 20.04 LTS (HVM) image and connect to the server via the terminal.
+
+
 ### Step 1 - Install NodeJs
-Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js is used in this tutorial to set up the Express routes and AngularJS controllers.Update ubuntu `sudo apt update`
-Upgrade ubuntu, run sudo apt upgrade
-Add certificates `sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates`
+Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js is used in this tutorial to set up the Express routes and AngularJS controllers. To update ubuntu run `sudo apt update`
+to upgrade ubuntu, run 
+`sudo apt upgrade`
+
+Add certificates 
+`sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates` 
+then
 `curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -`
+
 Install NodeJS `sudo apt install -y nodejs`
 
 
@@ -84,7 +94,7 @@ We also will use Mongoose package which provides a straight-forward, schema-base
 
 ![install express](images/step3_1_install_express.png)
 
-Step 3 of 1 - Run the command `sudo npm install express mongoose` then next 
+Step 3 of 1 - Run the command `sudo npm install express mongoose` then run 
 `mkdir apps` && `cd apps` Next, create a file named *routes.js* with the command  
 `vi routes.js`
 
@@ -132,7 +142,7 @@ module.exports = function(app) {
 
 ![create models directory](images/step3_2_create_models_directory.png)
 
-Step 3 of 2 - In the ‘apps’ folder, create a folder named models type the command mkdir models && cd models Create a file named book.js by running the command
+Step 3 of 2 - In the ‘apps’ folder, create a folder named models type the command `mkdir models && cd models` Create a file named *book.js* by running the command
 `vi book.js`
 Copy and paste the following code into ‘books.js’ and save.
 
@@ -264,5 +274,7 @@ Copy and paste the code below into *index.html* file.
 
 Step 4 of 3 - Change the directory back up to Books with `cd ..` command. Start the server by running this command: `node server.js`
 The server is now up and running, we can connect it via port 3300. You can launch a separate terminal console to test what *curl* command returns locally by running the command: `curl -s http://localhost:3300`
-It shall return an HTML page, it is hardly readable in the CLI, but we can also try and access it from the Interne using `http://<ip-address>:3300` in a browser.
 
+It shall return an HTML page, it is hardly readable in the CLI, but we can also try and access it from the Interne using `http://<public-ip-address>:3300` in a browser. Run `curl -s http://169.254.169.254/latest/meta-data/public-ipv4` to view the Public IP address of the server
+
+![view_app_browser](images/step4_4_view_app.png)
