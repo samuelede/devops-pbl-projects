@@ -90,7 +90,7 @@ Step 1 of 10 - Use *gdisk* utility to create a single partition on each of the 3
 
 ![create partitions](images/step1_5_a_create_partitions.png)
 
-Step 1 of 11 - Next, follow the prompts, enter `n` to create a new partition, then follow the default values a showen above, then enter w to write table to disk and exit followed by yes to complete the operation. Repeat the same steps for the remaining two volumes.
+Step 1 of 11 - Next, follow the prompts, enter `n` to create a new partition, then follow the default values a showen above, then enter `w` to write table to disk and exit followed by yes to complete the operation. Repeat the same steps for the remaining two volumes.
 
 
 ![create partitions](images/step1_5_b_create_partitions.png)
@@ -101,7 +101,7 @@ Step 1 of 12 - Use `lsblk` utility to view the newly configured partition on eac
 
 Step 1 of 13 - Install *lvm2* package using `sudo yum install lvm2`. Run `sudo lvmdiskscan` command to check for available partitions.
 
-Note: Previously, in Ubuntu we used *apt* command to install packages, in RedHat/CentOS a different package manager is used, so we shall use *yum* command instead.
+Note: Previously, in Ubuntu we used *apt* command to install packages, in **RedHat/CentOS** a different package manager is used, so we shall use *yum* command instead.
 
 
 ![pvcreate](images/step1_7_pvcreate.png)
@@ -121,8 +121,8 @@ Next, verify that your VG has been created successfully by running `sudo vgs`
 ![lvcreate utility](images/step1_9_lvcreate_utility.png)
 
 Step 1 of 16 - Use lvcreate utility to create 2 logical volumes. apps-lv (Use half of the PV size), and logs-lv Use the remaining space of the PV size. NOTE: apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs. Run the following commands individually:
-sudo lvcreate -n apps-lv -L 14G webdata-vg
-sudo lvcreate -n logs-lv -L 14G webdata-vg
+`sudo lvcreate -n apps-lv -L 14G webdata-vg` then
+`sudo lvcreate -n logs-lv -L 14G webdata-vg`
 Next, Verify that your Logical Volume has been created successfully by running `sudo lvs`
 
 ![verify setup](images/step1_10_verify_setup.png)
@@ -140,31 +140,48 @@ Step 1 of 18 - Use *mkfs.ext4* to format the logical volumes with *ext4* filesys
 ![mkfs format](images/step1_12_website_dir.png)
 
 Step 1 of 19 - Create /var/www/html directory to store website file
+
 `sudo mkdir -p /var/www/html`
+
 Create /home/recovery/logs to store backup of log data `sudo mkdir -p /home/recovery/logs`
 Mount /var/www/html on apps-lv logical volume 
+
 `sudo mount /dev/webdata-vg/apps-lv /var/www/html/`
+
 Next, use *rsync* utility to backup all the files in the log directory */var/log* into **/home/recovery/logs** (This is required before mounting the file system)
+
 `sudo rsync -av /var/log/. /home/recovery/logs/`
  
 ![verify setup](images/step1_13_rsync_utility.png)
 
-Step 1 of 20 - Mount /var/log on logs-lv logical volume. (Note that all the existing data on /var/log will be deleted. That is why step 15 above is very important) `sudo mount /dev/webdata-vg/logs-lv /var/log`
-Restore log files back into /var/log directory `sudo rsync -av /home/recovery/logs/. /var/log`
+Step 1 of 20 - Mount /var/log on logs-lv logical volume. (Note that all the existing data on /var/log will be deleted. That is why step 15 above is very important) 
+`sudo mount /dev/webdata-vg/logs-lv /var/log`
+
+Restore log files back into /var/log directory 
+
+`sudo rsync -av /home/recovery/logs/. /var/log`
 
 ![verify setup](images/step1_14_blkid_restart.png)
 
-Step 1 of 21 - Update */etc/fstab* file so that the mount configuration will persist after restart of the server. To do this, the UUID of the device will be used to update the /etc/fstab file; Run the following commands:
-`sudo blkid` then copy the UUID’s as indicated in the image above and save in a note pad then run the command sudo vi */etc/fstab*
+Step 1 of 21 - Update */etc/fstab* file so that the mount configuration will persist after restart of the server. To do this, the UUID of the device will be used to update the */etc/fstab* file; Run the following commands:
+`sudo blkid` then copy the UUID’s as indicated in the image above and save in a note pad then run the command `sudo vi /etc/fstab`
 
 ![verify setup](images/step1_15_fstab_edit.png)
 Step 1 of 22 - Update the file with the copied UUID’s as shown above and save remembering to remove the double quotes “”.
 
 ![test db config](images/step1_16_test_db_config.png)
 
-Step 1 of 23 - Test the configuration and reload the daemon by running the following command `sudo mount -a`
- `sudo systemctl daemon-reload`
-Verify your setup by running `df -h`, output must look like the above image.
+Step 1 of 23 - Test the configuration and reload the daemon by running the following command 
+
+`sudo mount -a`
+
+`sudo systemctl daemon-reload`
+
+Verify your setup by running 
+
+`df -h`, 
+
+output must look like the above image.
 
 
 Step 2 - Prepare the Database Server
@@ -182,9 +199,12 @@ Step 3 - Install WordPress on your Web Server EC2
 
 Step 3  of 1 - Update the repository. Run the command `sudo yum -y update` 
 Install wget, Apache and it’s dependencies
+
 `sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json`
+
 Start Apache with the folowing commands
 `sudo systemctl enable httpd`
+
 `sudo systemctl start httpd`
 
 ![install wordpress dependencies](images/step3_2_install_wordpress_dependencies.png)
