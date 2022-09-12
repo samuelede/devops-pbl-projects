@@ -27,3 +27,17 @@ In this project you will implement a solution that consists of following compone
 On the diagram below you can see a common pattern where several stateless Web Servers share a common database and also access the same files using Network File Sytem (NFS) as a shared file storage. Even though the NFS server might be located on a completely separate hardware – for Web Servers it look like a local file system from where they can serve the same files.
 
 ![3Tier Tooling Website Infrastructure](images/0-Tooling-Website-Infrastructure.png)
+
+### Step 1 – Prepare NFS Server
+Spin up a new EC2 instance with RHEL Linux 8 Operating System.
+
+Based on your LVM experience from [Project 6](https://github.com/samuelede/devops-pbl-projects/tree/main/project6#step-1---prepare-a-web-server), Configure LVM on the Server.
+
+Instead of formating the disks as ext4 you will have to format them as xfs
+
+Ensure there are 3 Logical Volumes. lv-opt lv-apps, and lv-logs
+
+Create mount points on /mnt directory for the logical volumes as follow:
+Mount lv-apps on /mnt/apps – To be used by webservers
+Mount lv-logs on /mnt/logs – To be used by webserver logs
+Mount lv-opt on /mnt/opt – To be used by Jenkins server in Project 8
