@@ -33,7 +33,7 @@ Spin up a new EC2 instance with RHEL Linux 8 Operating System.
 
 Based on your LVM experience from [Project 6](https://github.com/samuelede/devops-pbl-projects/tree/main/project6#step-1---prepare-a-web-server), Configure LVM on the Server.
 
-Instead of formating the disks as ext4 you will have to format them as xfs
+Instead of formating the disks as **ext4** you will have to format them as **xfs**
 
 Ensure there are 3 Logical Volumes. *lv-opt* *lv-apps*, and *lv-logs*
 
@@ -45,4 +45,15 @@ Create mount points on /mnt directory for the logical volumes as follow:
 
 **Mount lv-opt** on **/mnt/opt** – To be used by Jenkins server in Project 8
 
+
+Install *NFS server*, configure it to start on reboot and make sure it is up and running. Run the following commands
+`sudo yum -y update`
+
+`sudo yum install nfs-utils -y`
+
+`sudo systemctl start nfs-server.service`
+
+`sudo systemctl enable nfs-server.service`
+
+`sudo systemctl status nfs-server.service`
 
