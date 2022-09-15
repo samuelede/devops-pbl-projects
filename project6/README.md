@@ -90,7 +90,7 @@ Step 1 of 10 - Use *gdisk* utility to create a single partition on each of the 3
 
 ![create partitions](images/step1_5_a_create_partitions.png)
 
-Step 1 of 11 - Next, follow the prompts, enter `n` to create a new partition, then follow the default values a showen above, then enter `w` to write table to disk and exit followed by yes to complete the operation. Repeat the same steps for the remaining two volumes.
+Step 1 of 11 - Next, follow the prompts, enter `n` to create a new partition, then follow the default values as shown above, then enter `w` to write table to disk and exit followed by *yes* to complete the operation. Repeat the same steps for the remaining two volumes.
 
 
 ![create partitions](images/step1_5_b_create_partitions.png)
