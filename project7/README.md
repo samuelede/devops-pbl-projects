@@ -57,3 +57,4 @@ Install *NFS server*, configure it to start on reboot and make sure it is up and
 
 `sudo systemctl status nfs-server.service`
 
+![3Tier Configure NFS Server](images/step7_1_configureNFS_server.png)
