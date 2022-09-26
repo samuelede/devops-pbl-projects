@@ -86,7 +86,8 @@ Step 1 of 9 - Use `df -h` command to see all mounts and free space on your serve
 ![view free space](images/step1_4_view_free_space.png)
 
 Step 1 of 10 - Use *gdisk* utility to create a single partition on each of the 3 disks
-`sudo gdisk /dev/xvdf` | `sudo gdisk /dev/xvdg` | `sudo gdisk /dev/xvdh`
+
+Run the following commands separately and follow the pompts below `sudo gdisk /dev/xvdf` | `sudo gdisk /dev/xvdg` | `sudo gdisk /dev/xvdh`
 
 ![create partitions](images/step1_5_a_create_partitions.png)
 
