@@ -31,7 +31,8 @@ On the diagram below you can see a common pattern where several stateless Web Se
 ### Step 1 – Prepare NFS Server
 Spin up a new EC2 instance with RHEL Linux 8 Operating System.
 
-Based on your LVM experience from [Project 6](https://github.com/samuelede/devops-pbl-projects/tree/main/project6#step-1---prepare-a-web-server), Configure LVM on the Server.
+Based on your LVM experience from [Project 6](https://github.com/samuelede/devops-pbl-projects/tree/main/project6#step-1---prepare-a-web-server), follow the steps and setup a server named NFS Server to Configure LVM on the Server.
+
 
 Instead of formating the disks as **ext4** you will have to format them as **xfs**
 
