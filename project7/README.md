@@ -59,3 +59,16 @@ Install *NFS server*, configure it to start on reboot and make sure it is up and
 `sudo systemctl status nfs-server.service`
 
 ![3Tier Configure NFS Server](images/step7_1_configureNFS_server.png)
+
+
+### STEP 2 — CONFIGURE THE DATABASE SERVER
+Following the previous steps in [Project 6 - Step 4](https://github.com/samuelede/devops-pbl-projects/tree/main/project6#step-4---install-mysql-on-db-server-ec2) configure a MySQL DBMS Server named *DB Server* to work with the remote Web Server
+
+1. Install MySQL server
+2. Create a database and name it **tooling**
+3. Create a database user and name it **webaccess**
+4. Grant permission to *webaccess* user on *tooling* database to do anything only from the webservers *subnet cidr*
+
+
+### STEP 3 — PREPARE THE WEB SERVERS
+
