@@ -123,4 +123,27 @@ add following line
 
 `setsebool -P httpd_execmem 1`
 
-Repeat steps 1-5 for another 2 Web Servers.
+Repeat steps 1-5 for another 2 Web Servers named *NFS Client2* and *NFS Client3*.
+
+Verify that Apache files and directories are available on the Web Server in /var/www and also on the NFS server in /mnt/apps. 
+
+run `df -h` to confirm.
+
+If you see the same files – it means NFS is mounted correctly. You can try to create a new file 
+
+run `touch test.txt` from one server, preferably the NFS Web Server and check if the same file is accessible from other Web Servers.
+
+Locate the log folder for Apache on the Web Server and mount it to NFS server’s export for logs. Repeat step №4 to make sure the mount point will persist after reboot.
+
+Fork the tooling source code from Darey.io Github Account to your Github account. (Learn how to fork a repo here)
+
+Deploy the tooling website’s code to the Webserver. Ensure that the html folder from the repository is deployed to */var/www/html*
+
+**Note 1:** Do not forget to open TCP port 80 on the Web Server.
+
+**Note 2:** If you encounter 403 Error – check permissions to your /var/www/html folder and also disable 
+
+run `SELinux sudo setenforce 0`
+
+To make this change permanent – open following config file by running  `sudo vi /etc/sysconfig/selinux` and set *SELINUX=disabled* then **restrt httpd* with the command `command`.
+
