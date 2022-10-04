@@ -183,19 +183,19 @@ Verify your setup by running
 
 `df -h`, 
 
+![verify db setup](images/step2_1_verify_dbserver_setup.png)
+
 output must look like the above image.
 
 
-Step 2 - Prepare the Database Server
-
-![verify db setup](images/step2_1_verify_dbserver_setup.png)
+### Step 2 - Prepare the Database Server
 
 Launch a second RedHat EC2 instance that will have a role – ‘DB Server’. Repeat the same steps as for the Web Server, but instead of *apps-lv* create *db-lv* and mount it to 
 */db* directory instead of */var/www/html/*
 
-On completion, the final step should look like the above image.
 
-Step 3 - Install WordPress on your Web Server EC2
+
+### Step 3 - Install WordPress on your Web Server EC2
 
 ![update repo](images/step3_1_update_repo.png)
 
@@ -259,6 +259,7 @@ Run the following commands:
 
 
 ![SELinux policies](images/step3_4_SELinux_policies.png)
+
 Step 3 of 4 - Configure SELinux Policies
 
  `sudo chown -R apache:apache /var/www/html/wordpress`
