@@ -168,6 +168,7 @@ Step 1 of 21 - Update */etc/fstab* file so that the mount configuration will per
 `sudo blkid` then copy the UUID’s as indicated in the image above and save in a note pad then run the command `sudo vi /etc/fstab`
 
 ![verify setup](images/step1_15_fstab_edit.png)
+
 Step 1 of 22 - Update the file with the copied UUID’s as shown above and save remembering to remove the double quotes “”.
 
 ![test db config](images/step1_16_test_db_config.png)
