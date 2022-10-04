@@ -279,6 +279,7 @@ On the DB Server instance created earlier, we type the commands below to install
 `sudo yum install mysql-server`
 
 Verify that the service is up and running by using 
+
 `sudo systemctl status mysqld`
 
 If it is not running, restart the service and enable it so it will be running even after reboot:
@@ -296,7 +297,7 @@ Step 5 - Run the following commands to configure a new database for wordpress
 
 `CREATE DATABASE wordpress;`
 
-`CREATE USER 'myuser '@' <Web-Server-Private-IP-Address>' IDENTIFIED BY 'mypass';`
+`CREATE USER 'myuser'@'<Web-Server-Private-IP-Address>' IDENTIFIED BY 'mypass';`
 
 `GRANT ALL ON wordpress.* TO 'myuser'@'<Web-Server-Private-IP-Address>';`
 
