@@ -33,10 +33,11 @@ Spin up a new EC2 instance with RHEL Linux 8 Operating System.
 
 Based on your LVM experience from [Project 6](https://github.com/samuelede/devops-pbl-projects/tree/main/project6#step-1---prepare-a-web-server), follow the steps and setup a server named NFS Server to Configure LVM on the Server.
 
+Ensure there are 3 Logical Volumes. *lv-opt* *lv-apps*, and *lv-logs* each with **10G** created as in Project 6 Step 1 of 16
 
-Instead of formating the disks as **ext4** you will have to format them as **xfs**
+Instead of formating the disks as **ext4** you will have to format them as **xfs**. Example: `sudo mkfs -t ext4 /dev/webdata-vg/lv-apps` and for *lv-logs*, *lv-opt*. 
 
-Ensure there are 3 Logical Volumes. *lv-opt* *lv-apps*, and *lv-logs*
+Backup log files as shown in Project 6, Step 1 of 19.
 
 Create mount points on /mnt directory for the logical volumes as follow:
 
@@ -45,6 +46,8 @@ Create mount points on /mnt directory for the logical volumes as follow:
 **Mount lv-logs** on **/mnt/logs** – To be used by webserver logs
 
 **Mount lv-opt** on **/mnt/opt** – To be used by Jenkins server in Project 8
+
+Then, finally rsync the backed up log files. 
 
 
 Install *NFS server*, configure it to start on reboot and make sure it is up and running. Run the following commands
@@ -59,6 +62,50 @@ Install *NFS server*, configure it to start on reboot and make sure it is up and
 `sudo systemctl status nfs-server.service`
 
 ![3Tier Configure NFS Server](images/step7_1_configureNFS_server.png)
+
+Export the mounts for webservers’ subnet cidr to connect as clients. For simplicity, you will install your all three Web Servers inside the same subnet, but in production set up you would probably want to separate each tier inside its own subnet for higher level of security.
+To check your subnet cidr – open your EC2 details in AWS web console and locate ‘Networking’ tab and open a Subnet link:
+
+!(image)[Image]
+
+Make sure we set up permission that will allow our Web servers to read, write and execute files on NFS:
+Run the following commands
+
+`sudo chown -R nobody: /mnt/apps`
+`sudo chown -R nobody: /mnt/logs`
+`sudo chown -R nobody: /mnt/opt`
+
+`sudo chmod -R 777 /mnt/apps`
+`sudo chmod -R 777 /mnt/logs`
+`sudo chmod -R 777 /mnt/opt`
+
+`sudo systemctl restart nfs-server.service`
+
+Configure access to NFS for clients within the same subnet (example of Subnet CIDR – 172.31.16.0/20 ):
+Run the command 
+`sudo vi /etc/exports`
+
+Copy and paste the following with the NFS Web Server Subnet
+
+
+```
+/mnt/apps <Subnet-CIDR>(rw,sync,no_all_squash,no_root_squash)
+/mnt/logs <Subnet-CIDR>(rw,sync,no_all_squash,no_root_squash)
+/mnt/opt <Subnet-CIDR>(rw,sync,no_all_squash,no_root_squash)
+```
+
+Type *Esc + :wq!* to save and exit.
+
+Next, run `sudo exportfs -arv`
+
+Check which port is used by NFS and open it using Security Groups (add new Inbound Rule)
+
+`rpcinfo -p | grep nfs`
+
+Important note: In order for NFS server to be accessible from your client, you must also open following ports: **TCP 111, UDP 111, UDP 2049**
+
+!(image)[Image]
+
 
 
 ### STEP 2 — CONFIGURE THE DATABASE SERVER
