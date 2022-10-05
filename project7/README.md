@@ -168,7 +168,7 @@ add following line
 
 `sudo systemctl enable php-fpm`
 
-`setsebool -P httpd_execmem 1`
+`sudo setsebool -P httpd_execmem 1`
 
 Repeat steps 1-5 for another 2 Web Servers named *NFS Client2* and *NFS Client3*.
 
@@ -182,9 +182,18 @@ run `touch test.txt` from one server, preferably the NFS Web Server and check if
 
 Locate the log folder for Apache on the Web Server and mount it to NFS server’s export for logs. Repeat step №4 to make sure the mount point will persist after reboot.
 
-Fork the tooling source code from Darey.io Github Account to your Github account. (Learn how to fork a repo here)
+Fork the tooling source code from Darey.io Github Account to your Github account. (Link)[https://github.com/darey-io/tooling.git]
+Run 'sudo git --version' to check if git is installed. 
+If not installed, Run the command 'sudo dnf install git' to install git on RHEL8
 
-Deploy the tooling website’s code to the Webserver. Ensure that the html folder from the repository is deployed to */var/www/html*
+In the /mnt/apps directory, run the command
+
+`sudo git clone https://github.com/samuelede/tooling-pbl.git`
+
+
+Deploy the tooling website’s code to the Webserver. Ensure that the html folder from the repository is deployed to */var/www/html*. 
+Run the command `sudo rsync -av /mnt/apps/tooling-pbl/html/. /mnt/apps/html/`
+
 
 **Note 1:** Do not forget to open TCP port 80 on the Web Server.
 
@@ -192,9 +201,11 @@ Deploy the tooling website’s code to the Webserver. Ensure that the html folde
 
 run `SELinux sudo setenforce 0`
 
-To make this change permanent – open following config file by running  `sudo vi /etc/sysconfig/selinux` and set *SELINUX=disabled* then **restrt httpd* with the command `command`.
+To make this change permanent – open following config file by running  `sudo vi /etc/sysconfig/selinux` and set *SELINUX=disabled* then **restrt httpd* with the command `sudo service httpd restart`.
 
-Update the website’s configuration to connect to the database *(in /var/www/html/functions.php file)*. Apply tooling-db.sql script to your database using this command `mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql`
+Update the website’s configuration to connect to the database *(in /var/www/html/functions.php file)*. Apply tooling-db.sql script to your database using this command 
+
+`mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql`
 
 Create in MySQL a new admin user with username: *myuser* and password: *password*
 
