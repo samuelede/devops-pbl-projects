@@ -35,9 +35,20 @@ Based on your LVM experience from [Project 6](https://github.com/samuelede/devop
 
 Ensure there are 3 Logical Volumes. *lv-opt* *lv-apps*, and *lv-logs* each with **10G** created as in Project 6 Step 1 of 16
 
-Instead of formating the disks as **ext4** you will have to format them as **xfs**. Example: `sudo mkfs -t ext4 /dev/webdata-vg/lv-apps` and for *lv-logs*, *lv-opt*. 
+Instead of formating the disks as **ext4** you will have to format them as **xfs**. Example: 
+
+`sudo mkfs -t ext4 /dev/webdata-vg/lv-apps` and for *lv-logs*, *lv-opt*. 
+
+![confirm setup](images/step1_1_confirm_setup.png)
+![create volumes](images/step1_1_create_volumes.png)
+
+
+![mount points](images/step1_2_mount_points.png)
+![backup logs](images/step1_3_backup_logs.png) 
 
 Backup log files as shown in Project 6, Step 1 of 19.
+
+
 
 Create mount points on /mnt directory for the logical volumes as follow:
 
@@ -47,10 +58,15 @@ Create mount points on /mnt directory for the logical volumes as follow:
 
 **Mount lv-opt** on **/mnt/opt** – To be used by Jenkins server in Project 8
 
+![lvs rsync](images/step1_4_mound_lvs_rsync.png)
+
 Then, finally rsync the backed up log files. 
 
+![lvs rsync](images/step1_5_edit_fstab_file.png)
+![nfs server status](images/step1_6_nfs_server_status.png)
 
 Install *NFS server*, configure it to start on reboot and make sure it is up and running. Run the following commands
+
 `sudo yum -y update`
 
 `sudo yum install nfs-utils -y`
@@ -66,10 +82,12 @@ Install *NFS server*, configure it to start on reboot and make sure it is up and
 Export the mounts for webservers’ subnet cidr to connect as clients. For simplicity, you will install your all three Web Servers inside the same subnet, but in production set up you would probably want to separate each tier inside its own subnet for higher level of security.
 To check your subnet cidr – open your EC2 details in AWS web console and locate ‘Networking’ tab and open a Subnet link:
 
-!(image)[Image]
+![3Tier Configure NFS Server](images/step7_1_configureNFS_server.png)
 
 Make sure we set up permission that will allow our Web servers to read, write and execute files on NFS:
 Run the following commands
+
+![file permissions](images/step1_8_file_permissions.png)
 
 `sudo chown -R nobody: /mnt/apps`
 `sudo chown -R nobody: /mnt/logs`
@@ -81,8 +99,11 @@ Run the following commands
 
 `sudo systemctl restart nfs-server.service`
 
+![server subnet]step1_7_server_subnet.png)
+
 Configure access to NFS for clients within the same subnet (example of Subnet CIDR – 172.31.16.0/20 ):
 Run the command 
+
 `sudo vi /etc/exports`
 
 Copy and paste the following with the NFS Web Server Subnet
@@ -104,12 +125,16 @@ Check which port is used by NFS and open it using Security Groups (add new Inbou
 
 Important note: In order for NFS server to be accessible from your client, you must also open following ports: **TCP 111, UDP 111, UDP 2049**
 
-!(image)[Image]
-
+![nfs client access](images/step1_9_nfs_client_access.png)
+![nfs config status](images/step1_10_nfs_config_status.png)
+![inbound rules](images/step1_11_inbound_rules.png)
+![inbound rules](images/step1_11b_inbound_rules.png)
 
 
 ### STEP 2 — CONFIGURE THE DATABASE SERVER
 Following the previous steps in [Project 6 - Step 4 and Step 5](https://github.com/samuelede/devops-pbl-projects/tree/main/project6#step-4---install-mysql-on-db-server-ec2) configure a MySQL DBMS Server named *DB Server* to work with the remote Web Server
+
+![db server config](images/step2_1_configure_database_server.png)
 
 1. Install MySQL server
 2. Create a database and name it **tooling**
@@ -172,6 +197,10 @@ add following line
 
 Repeat steps 1-5 for another 2 Web Servers named *NFS Client2* and *NFS Client3*.
 
+![test mount](images/step3_1_test_mount.png)
+![test mount](images/step3_2_test_mount.png)
+![test mount](images/step3_3_test_mount.png)
+
 Verify that Apache files and directories are available on the Web Server in /var/www and also on the NFS server in /mnt/apps. 
 
 run `df -h` to confirm.
@@ -201,15 +230,23 @@ Run the command `sudo rsync -av /mnt/apps/tooling-pbl/html/. /mnt/apps/html/`
 
 run `SELinux sudo setenforce 0`
 
+![edit selinux](images/step3_4_edit_selinux.png)
+
 To make this change permanent – open following config file by running  `sudo vi /etc/sysconfig/selinux` and set *SELINUX=disabled* then **restrt httpd* with the command `sudo service httpd restart`.
+
+![install database](images/step3_5_install_database.png)
 
 Update the website’s configuration to connect to the database *(in /var/www/html/functions.php file)*. Apply tooling-db.sql script to your database using this command 
 
 `mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql`
 
+![database status](images/step3_6_database_status.png)
+
 Create in MySQL a new admin user with username: *myuser* and password: *password* by running the following command in the mysql console of the DB server.
 
 `INSERT INTO users (id, username, password, email, user_type, status) VALUES (2, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');`
+
+![final setup](images/step3_7_final_setup.png)
 
 Open the website in your browser using the address `http://<Web-Server-Public-IP-Address-or-Public-DNS-Name>/index.php` and make sure you can login into the website with myuser user.
 
