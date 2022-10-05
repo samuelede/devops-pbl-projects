@@ -207,13 +207,10 @@ Update the website’s configuration to connect to the database *(in /var/www/ht
 
 `mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql`
 
-Create in MySQL a new admin user with username: *myuser* and password: *password*
+Create in MySQL a new admin user with username: *myuser* and password: *password* by running the following command in the mysql console of the DB server.
 
-by running the following command in the mysql console of the DB server.
+`INSERT INTO users (id, username, password, email, user_type, status) VALUES (2, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');`
 
-`INSERT INTO ‘users’ (‘id’, ‘username’, ‘password’, ’email’, ‘user_type’, ‘status’) VALUES
--> (1, ‘myuser’, ‘5f4dcc3b5aa765d61d8327deb882cf99’, ‘user@mail.com’, ‘admin’, ‘1’);`
-
-Open the website in your browser using the address *http://<Web-Server-Public-IP-Address-or-Public-DNS-Name>/index.php* and make sure you can login into the website with myuser user.
+Open the website in your browser using the address `http://<Web-Server-Public-IP-Address-or-Public-DNS-Name>/index.php` and make sure you can login into the website with myuser user.
 
 **ALL DONE!** We have implemented a web solution for a Devops team using LAMP stack with remote Database and NFS servers.
