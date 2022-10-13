@@ -3,7 +3,7 @@
 
 # Darey.io - DevOps Project Base Learning Project 8 Documentation
 
-AUGUST 2022
+October 2022
 
 ## LOAD BALANCER SOLUTION WITH APACHE
 
