@@ -113,6 +113,6 @@ Remember, this is only internal configuration and it is also local to your LB se
 
 The final setup would look like this:
 
-(image)[]
+![project 8 final](images/project8_final.png)
 
 Load balancing Web Solution for a DevOps Team has been completed
