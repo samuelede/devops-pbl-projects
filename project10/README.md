@@ -15,4 +15,4 @@ This project consists of two parts:
 
 Your target architecture will look like this:
 
-![project10 prerequisites](images/ngix_lb.png)
+![project10 prerequisites](images/nginx_lb.png)
