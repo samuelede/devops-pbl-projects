@@ -10,3 +10,5 @@ Contents
 - [**Project 6** - Web Solution with WORDPRESS](project6/README.md)
 - [**Project 7** - DevOps Tooling Website Solution](project7/README.md)
 - [**Project 8** - DevOps Load Balancer Solution with Apache](project8/README.md)
+- [**Project 9** - Tooling Website Development Automation with Continuous Integration. Introduction to Jenkins](project9/README.md)
+- [**Project 10** - Load Balancer Solution with NGINX and SSL/TLS](project10/README.md)
