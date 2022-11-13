@@ -12,3 +12,4 @@ Contents
 - [**Project 8** - DevOps Load Balancer Solution with Apache](project8/README.md)
 - [**Project 9** - Tooling Website Development Automation with Continuous Integration. Introduction to Jenkins](project9/README.md)
 - [**Project 10** - Load Balancer Solution with NGINX and SSL/TLS](project10/README.md)
+- [**Project 11** - Ansible: Automate Project 7 - 10](project11/README.md)
