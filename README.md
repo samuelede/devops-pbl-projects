@@ -13,3 +13,4 @@ Contents
 - [**Project 9** - Tooling Website Development Automation with Continuous Integration. Introduction to Jenkins](project9/README.md)
 - [**Project 10** - Load Balancer Solution with NGINX and SSL/TLS](project10/README.md)
 - [**Project 11** - Ansible: Automate Project 7 - 10](project11/README.md)
+- [**Project 12** - Ansible Refactoring & Static Assignments (Imports and Roles))](project12/README.md)
