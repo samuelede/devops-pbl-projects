@@ -9,8 +9,10 @@ AUGUST 2022
 
 ## DEVOPS TOOLING WEBSITE SOLUTION
 
-
-
+## Contents
+1. [Step 1 - Prepare NFS Server](#step-1--prepare-nfs-server)
+2. [Step 2 - Configure the Database Server](#step-2--configure-the-database-server)
+3. [Step 3 - Prepare the Web Servers](#step-3--prepare-the-web-servers)
 
 ### Setup and technologies used in Project 7
 As a member of a DevOps team, you will implement a tooling website solution which makes access to DevOps tools within the corporate infrastructure easily accessible.
