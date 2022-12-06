@@ -12,7 +12,13 @@ AUGUST 2022
 
 
 
-
+### Contents
+1. [Step 1 - Prepare a Web Server](#step-1---prepare-a-web-server)
+2. [Step 2 - Prepare the Database Server](#step-2---prepare-the-database-server)
+3. [Step 3 - Install WordPress on your Web Server EC2](#step-3---install-wordpress-on-your-web-server-ec2)
+4. [Step 4 - Install MySQL on db server EC2](#step-4---install-mysql-on-db-server-ec2)
+5. [Step 5 - Congigure DB to work with WordPress](#step-5---configure-db-to-work-with-wordpress)
+6. [Step 6 - Configure WordPress to connect to remote database](#step-6---configure-wordpress-to-connect-to-remote-database)
 
 
 
