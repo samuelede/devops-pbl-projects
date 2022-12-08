@@ -13,7 +13,12 @@ JULY 2022
 # MEAN STACK IMPLEMENTATION
 
 
-
+### Contents
+1. [Step 0 - Preparing prerequisites](#step-0---preparing-prerequisites)
+2. [Step 1 - Install NodeJs](#step-1---install-nodejs)
+3. [Step 2 - Install MongoDB](#step-2---install-mongodb)
+4. [Step 3 - Install Express and set up routes to the server](#step-3---install-express-and-set-up-routes-to-the-server)
+5. [Step 4 - Access the routes with AngularJS](#step-4---access-the-routes-with-angularjs)
 
 
 
