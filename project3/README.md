@@ -11,7 +11,10 @@ JULY 2022
 # MERN STACK IMPLEMENTATION
 
 
-
+### Contents
+1. [Step 0 - Preparing prerequisites](#step-0---preparing-prerequisites)
+2. [Step 1 - BackEnd Configuration](#step-1---backend-configuration)
+3. [Step 2 - FrontEnd Creation](#step--2---frontend-creation)
 
 
 ## Introduction & Background
