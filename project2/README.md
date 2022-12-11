@@ -9,6 +9,14 @@ JULY 2022
 
 ## LEMP STACK IMPLEMENTATION
 
+### Contents
+1. [Step 0 - Preparing prerequisites](#step-0---preparing-prerequisites)
+2. [Step 1 - Installing the NGINX Web Server](#step-1---installing-the-nginx-web-server)
+3. [Step 2 - Installing MySQL](#step-2---installing-mysql)
+4. [Step 3 - Installing PHP](#step-3---installing-php)
+5. [Step 4 - Congiguring NGINX to use PHP Processor](#step4---configuring-nginx-to-use-php-processor)
+6. [Step 5 - Testing PHP with Nginx](#step-5---testing-php-with-nginx)
+7. [Step 6 - Retrieving Data from MySQL Database with PHP](#step-6---retrieving-data-from-mysql-database-with-php-continued)
 
 
 ### STEP 0 - Preparing prerequisites
