@@ -10,6 +10,14 @@ JULY 2022
 
 ## LAMP STACK IMPLEMENTATION
 
+### Contents
+1. [Step 0 - Web Stack Implementation (LAMP Stack) in AWS](#step-0--web-stack-implementation-lamp-stack-in-aws)
+2. [Step 1 - Installing Apache and Updating Firewall](#step-1--installing-apache-and-updating-firewall)
+3. [Step 2 - Installing MySQL](#step-2--installing-mysql)
+4. [Step 3 - Installing PHP](#step-3--installing-php)
+5. [Step 4 - Creating a Website Virtual Host using Apache](#step-4--creating-a-website-virtual-host-using-apache)
+6. [Step 5 - Enable PHP on the Website](#step-5--enable-php-on-the-website)
+
 
 ### STEP 0 – Web Stack Implementation (LAMP Stack) in AWS
 
