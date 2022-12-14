@@ -61,3 +61,46 @@ Restart Nginx and make sure the service is up and running with the next commands
 
 ### Step 2 - Register a new domain name and configure secured connection using SSL/TLS certificates
 
+In order to get a valid SSL certificate – you need to register a new domain name, you can do it using any Domain name registrar – a company that manages reservation of domain names. The most popular ones are:
+Godaddy.com, Domain.com, Bluehost.com.
+
+1. Register a new domain name with any registrar of your choice in any
+domain zone (*e.g. .com, .net, .org, .edu, .info, .xyz or any other*)
+2. Assign an Elastic IP to your Nginx LB server and associate your
+domain name with this Elastic IP
+3. Update A record in your registrar to point to Nginx LB using Elastic IP
+address.
+4. Configure Nginx to recognize your new domain name. Update your *nginx.conf* with *server_name www.<your-domain-name.com>*
+instead of *server_name www.domain.com*
+5. Install **certbot** and request for an SSL/TLS certificate. Make sure snapd service is active and running
+
+`sudo systemctl status snapd`
+
+Install cerbot
+
+`sudo snap install --classic certbot`
+
+Request your certificate (just follow the certbot instructions – you will need to choose which domain you want your certificate to be issued for, domain name will be looked up from nginx.conf file so make sure you have updated it on step 4).
+
+`sudo ln -s /snap/bin/certbot /usr/bin/certbot`
+`sudo certbot --nginx`
+
+6. Set up periodical renewal of your SSL/TLS certificate.
+By default, LetsEncrypt certificate is valid for 90 days, so it isrecommended to renew it at least every 60 days or more frequently.
+You can test renewal command in dry-run mode 
+
+`sudo certbot renew --dry-run`
+
+Best pracice is to have a scheduled job that to run renew
+commandperiodically. Let us configure a cronjob to run the command twice a day.
+To do so, lets edit the crontab file with the following command:
+
+`crontab -e`
+
+Add following line:
+
+`* */12 * * * root /usr/bin/certbot renew > /dev/null 2>&1`
+
+You can always change the interval of this cronjob if twice a day is toooften by adjusting schedule expression.
+
+Finally, You have just implemented an Nginx Load Balancing Web Solution withsecured HTTPS connection with periodically updated SSL/TLScertificates.
