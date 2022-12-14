@@ -10,8 +10,8 @@ October 2022
 ### Task
 This project consists of two parts:
 
-1. Configure Nginx as a Load Balancer
-2. Register a new domain name and configure secured connection using SSL/TLS certificates
+1. [Configure Nginx as a Load Balancer](#step-1---configure-nginx-as-a-load-balancer)
+2. [Register a new domain name and configure secured connection using SSL/TLS certificates](#step-2---register-a-new-domain-name-and-configure-secured-connection-using-ssltls-certificates)
 
 Your target architecture will look like this:
 
