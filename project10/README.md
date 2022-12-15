@@ -85,6 +85,11 @@ Request your certificate (just follow the certbot instructions – you will need
 `sudo ln -s /snap/bin/certbot /usr/bin/certbot`
 `sudo certbot --nginx`
 
+Test secured access to your Web Solution by trying to reach *https://<your-domain-name.com>*
+
+You shall be able to access your website by using HTTPS protocol (that uses TCP port 443) and see a padlock pictogram in your browser’s search string.
+Click on the padlock icon and you can see the details of the certificate issued for your website.
+
 6. Set up periodical renewal of your SSL/TLS certificate.
 By default, LetsEncrypt certificate is valid for 90 days, so it isrecommended to renew it at least every 60 days or more frequently.
 You can test renewal command in dry-run mode 
