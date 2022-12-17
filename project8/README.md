@@ -8,7 +8,15 @@ October 2022
 ## LOAD BALANCER SOLUTION WITH APACHE
 
 
+After completing Project-7 you might wonder how a user will be accessing each of the webservers using 3 different IP addreses or 3 different DNS
+names. You might also wonder what is the point of having 3 different servers doing exactly the same thing.
 
+
+![project8 prerequisites](images/load_balancer_p8.png)
+
+Task
+Deploy and configure an Apache Load Balancer for Tooling Website solution on a separate Ubuntu EC2 intance. Make sure that users can beserved by Web servers through the Load Balancer.
+To simplify, let us implement this solution with 2 Web Servers, the approach will be the same for 3 and more Web Servers.
 
 ### Step 1 - Configure Apache as a Load Balancer
 
